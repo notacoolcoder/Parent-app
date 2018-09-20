@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import "./index.css"
-import { Icon, Badge,Menu,Layout } from "antd"
+import { Icon, Badge,Menu,Layout,Input} from "antd"
 
-const { Header, Sider, Content } = Layout;
+const Search = Input.Search;
+
+const { Header, Sider } = Layout;
 
 const SubMenu = Menu.SubMenu
 export default class extends Component {
@@ -11,7 +13,7 @@ export default class extends Component {
     super(props)
 
     this.state={
-      collapsed:false
+      collapsed:true
     }
   }
   
@@ -32,36 +34,41 @@ export default class extends Component {
 
     return (
       <div>
-          <Layout >
+          <Layout style={{height:"100vh"}} >
         <Sider
-        style={{height:"100vh"}}
+        
           trigger={null}
           collapsible
           collapsed={this.state.collapsed}
           collapsedWidth="0"
         >
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu theme="dark" mode="inline">
             <Menu.Item key="1">
-              <Icon type="user" />
-              <span>nav 1</span>
+            <Search
+      placeholder="input search text"
+      onSearch={value => console.log(value)}
+      style={{ width: 160 }}
+    />
             </Menu.Item>
             <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span>nav 2</span>
+            <div class="pa4 tc">
+  <img
+      src="http://tachyons.io/img/logo.jpg"
+      class="br-100 ba h3 w3 dib" alt="avatar"/>
+</div>
+<h3>Principal</h3>
             </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="upload" />
-              <span>nav 3</span>
-            </Menu.Item>
+            
           </Menu>
         </Sider>
         
-          <Header style={{ background: '#fff', padding: 0,width:"100%",backgroundColor:"#0067a3" }}>
+          <Header style={{ background: '#fff', padding: 0,width:"100%",backgroundColor:"#0067a3",height:"50px" }}>
             <Icon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
+              style={{fontSize:"23px",paddingLeft:"6px"}}
             />
           </Header>
           </Layout>
