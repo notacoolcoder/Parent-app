@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./index.css"
+import {Card} from "antd"
 
 
 export default class  extends Component {
@@ -21,8 +22,11 @@ export default class  extends Component {
        
     
         return (
-          <div >
-    
+          <div className= "common-container" >
+     <Card className="common-card">
+    <p>Card content</p>
+    <p>Card content</p>
+  </Card>,
           </div>
         );
       }

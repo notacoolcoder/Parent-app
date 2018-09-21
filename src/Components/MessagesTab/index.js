@@ -39,10 +39,10 @@ export default class  extends Component {
         
         <Tabs
           defaultActiveKey="1"
-          tabPosition={mode}
-          style={{ height: 220 }}
+          tabPosition="horizontal"
+          style={{ height: "auto" }}
         >
-          <TabPane tab="circular" key="1"><Circular/></TabPane>
+          <TabPane tab="Circular" key="1"><Circular/></TabPane>
           <TabPane tab="Day Report" key="2"><DayReport/></TabPane>
           <TabPane tab="Portions Taken" key="3"><Portions/></TabPane>
           <TabPane tab="Homework" key="4"><HomeWork/></TabPane>

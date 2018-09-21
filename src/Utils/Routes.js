@@ -12,7 +12,7 @@ export default class  extends Component {
     
         return (
           <div >
-              <Appbar/>
+           
               <Router>
                   <Switch>
                   <Route exact path="/home" component={Home}/>
