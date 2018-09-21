@@ -1,0 +1,27 @@
+.message-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  align-items: normal;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100px;
+}
+
+.message-card p {
+  text-overflow: ellipsis;
+}
+
+.message-content {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  transition: height 5s;
+}
+.message-content p {
+  word-wrap: break-word;
+  flex-wrap: wrap;
+  width: 90%;
+}

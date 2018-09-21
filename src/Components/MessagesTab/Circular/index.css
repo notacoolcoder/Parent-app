@@ -1,0 +1,9 @@
+.circular-main {
+  display: flex;
+  flex-direction: column;
+}
+.circular-date {
+  text-align: center;
+  margin: auto;
+  display: flex;
+}
