@@ -28,7 +28,10 @@ export default class extends Component {
             defaultActiveKey="1"
             tabPosition="horizontal"
             style={{ height: "auto" }}
-            tabBarStyle={{ backgroundColor: "#35356e", color: "#fff" }}
+            tabBarStyle={{
+              backgroundColor: "#35356e",
+              color: "#fff"
+            }}
           >
             <TabPane tab="Circular" key="1">
               <Circular />

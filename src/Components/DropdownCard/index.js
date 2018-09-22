@@ -21,7 +21,6 @@ export default class extends Component {
       instructions: this.props.instructions,
       data: this.props.data
     });
-    console.log(this.props.data);
   }
   changeIcon() {
     this.setState({
@@ -39,7 +38,7 @@ export default class extends Component {
     return (
       <div className="common-container">
         <div className={this.state.class}>
-          <h4>{this.state.date}</h4>
+          <h4>{this.props.date}</h4>
 
           {this.state.icon ? (
             <div className="dropdown-content-container">
@@ -60,7 +59,7 @@ export default class extends Component {
                         <h4>{v.subject}</h4>
                         {this.props.test ? (
                           <p>
-                            Tesr Date:
+                            Test Date:
                             {v.testDate}
                           </p>
                         ) : null}
@@ -75,6 +74,10 @@ export default class extends Component {
                         <p>
                           Description:
                           {v.description}
+                        </p>
+                        <p>
+                          TemplateName:
+                          {v.templateName}
                         </p>
                       </span>
                     ))}

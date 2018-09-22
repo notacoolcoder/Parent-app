@@ -5,27 +5,40 @@ export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [
-        {
-          id: 31470,
-          subject: "Computer",
-          testDate: "19/09/2018",
-          templateName: "Study well for exam",
-          chapters: "33,34",
-          pageNo: "34,35,36,37,38",
-          description: "",
-          assignedDate: "17/09/2018"
-        }
-      ]
+      data: []
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    var data = {
+      studentId: 20570,
+      offset: 0,
+      count: 5
+    };
+    fetch(
+      "http://test.ssdiary.com/ssdiary/parentApp/dailyreport/test/countwise/",
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+      .then(response => {
+        return response.json();
+      })
+      .then(value => {
+        this.setState({ data: value });
+      });
+  }
 
   render() {
     return (
       <div>
-        <DropdownCard test={true} data={this.state.data} />
+        {this.state.data.map(e => (
+          <DropdownCard date={e.date} test={true} data={e.classTestList} />
+        ))}
       </div>
     );
   }
