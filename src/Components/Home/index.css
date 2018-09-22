@@ -1,0 +1,15 @@
+.homeMainDiv{
+  width: 100% ;
+  height: 100vh ;
+  display: flex ;
+  flex-direction: column;
+  align-items: center;
+  margin : 10px ;
+}
+
+.row1InHome{
+  background-image: url("http://www.slate.com/content/dam/slate/articles/health_and_science/science/2014/07/is_religion_good_for_children_secular_children_can_distinguish_between_magic/163565393-school-children-pray-while-attending-noon-mass-at-st.jpg.CROP.promovar-mediumlarge.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
