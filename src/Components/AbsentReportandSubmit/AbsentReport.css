@@ -1,30 +1,33 @@
 .absent-report-main-container {
   max-width: 360px;
-  width: 100vw;
+  width: 95%;
+  margin: auto;
 }
 
 .absent-report-main-container.grey-color-bg {
   background-color: #e8eced;
-  min-height: 100vh;
 }
 
 .absent-report-main-container .send-leave-container {
   background-color: #f2f2f2;
   margin: auto;
-  padding: 4vw 0;
-  position: relative;
+  width: 360;
+  display: flex;
+  height: 50px;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .absent-report-main-container .send-leave-container .total-absent {
-  font-size: 3.5vw;
+  font-size: 10px;
   color: #989898;
   display: inline-block;
-  margin-left: 7vw;
+  margin-left: 10px;
 }
 
 .absent-report-main-container .send-leave-container .total-absent .absent-days {
   color: grey;
-  font-size: 4.5vw;
+  font-size: 14px;
 }
 
 .absent-report-main-container .send-leave-container .send-leave {
@@ -32,30 +35,29 @@
   border: none;
   border-radius: 18px;
   color: white;
-  font-size: 3.5vw;
+  font-size: 10px;
+  padding: 4px 10px 4px 10px;
   font-weight: 600;
-  padding: 7px 14px;
-  margin-left: 26vw;
+  margin: 10px;
 }
 
 .absent-report-main-container .leave-list-container {
-  width: 88vw;
   margin: auto;
 }
 
 .absent-report-main-container .leave-list-container .leave-list-item {
   border-bottom: 1px solid #80808038;
-  padding-bottom: 1.5vw;
-  margin-top: 3vw;
+  padding-bottom: 4px;
+  margin-top: 12px;
+  display: flex;
 }
 
 .absent-report-main-container .leave-list-container .leave-list-item .date {
   border-radius: 50%;
   background-color: #fd5a37;
-  font-size: 3vw;
   display: inline-block;
-  width: 12vw;
-  height: 12vw;
+  width: 42px;
+  height: 43px;
   text-align: center;
 }
 
@@ -65,10 +67,8 @@
   .date.future {
   border-radius: 50%;
   background-color: #8ec63f;
-  font-size: 3vw;
+  font-size: 10px;
   display: inline-block;
-  width: 12vw;
-  height: 12vw;
   text-align: center;
 }
 
@@ -77,15 +77,14 @@
   color: #989898;
   border: solid 1px #989898;
   border-radius: 5px;
-  position: absolute;
-  right: 6vw;
-  font-size: 4vw;
+  margin-left: auto;
+  align-self: flex-start;
 }
 
 .absent-report-main-container .leave-list-container .leave-list-item .date h1 {
   display: inline;
-  font-size: 3vw;
   color: white;
+  font-size: 11.5px;
 }
 
 .absent-report-main-container
@@ -95,45 +94,52 @@
   h1
   span {
   font-weight: 600;
-  font-size: 5vw;
-  line-height: 6vw;
+  font-size: 19px;
+  line-height: 7px;
 }
 
 .absent-report-main-container .leave-list-container .leave-list-item .reason {
   display: inline-block;
-  height: 12vw;
-  margin-left: 8vw;
+  margin-left: 20px;
 }
 
 .absent-report-main-container
   .leave-list-container
   .leave-list-item
   .reason
+  .leave
+  span {
+  font-size: 12px;
+  color: #989898;
+}
+.absent-report-main-container
+  .leave-list-container
+  .leave-list-item
+  .reason
   .leave {
-  font-size: 3.5vw;
+  font-size: 13px;
   color: #989898;
 }
 
 .absent-report-main-container .submit-leave-container {
-  width: 88vw;
+  width: 260px;
   margin: auto;
-  margin-top: 7vw;
+  margin-top: 20px;
 }
 
 .absent-report-main-container .submit-leave-container h1 {
-  font-size: 4vw;
+  font-size: 18px;
 }
 
 .absent-report-main-container .submit-leave-container .date-picker-container {
   position: relative;
-  min-height: 26vw;
 }
 
 .absent-report-main-container
   .submit-leave-container
   .date-picker
   .ant-calendar-picker-input {
-  font-size: 3.5vw;
+  font-size: 18px;
   padding: 4px 0 4px 2px;
 }
 
@@ -155,15 +161,14 @@
 
 .absent-report-main-container .submit-leave-container .reason-for-leave {
   width: 100%;
-  height: 80vw;
+  height: 80px;
   border: none;
   border-radius: 7px;
-  padding: 3vw;
+  padding: 20px;
 }
 
 .absent-report-main-container .submit-leave-container .submit-button-container {
   text-align: center;
-  margin-top: 8vw;
 }
 
 .absent-report-main-container .submit-leave-container .submit-button {
@@ -171,7 +176,7 @@
   border: none;
   border-radius: 18px;
   color: white;
-  font-size: 4vw;
+  font-size: 18px;
   font-weight: 600;
   padding: 10px 38px;
 }
