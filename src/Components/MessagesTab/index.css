@@ -1,0 +1,8 @@
+.ant-tabs-nav .ant-tabs-tab-active {
+  color: white;
+  font-weight: 800;
+}
+
+.ant-tabs-nav .ant-tabs-tab {
+  color: #f0f2f5;
+}
