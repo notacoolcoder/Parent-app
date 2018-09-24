@@ -9,6 +9,9 @@ body {
   justify-content: center;
   align-items: center;
   align-content: center;
+
+  margin-right: 5px;
+  margin-left: 5px;
 }
 .common-card {
   width: 360px;

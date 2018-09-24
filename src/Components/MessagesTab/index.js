@@ -30,7 +30,8 @@ export default class extends Component {
             style={{ height: "auto" }}
             tabBarStyle={{
               backgroundColor: "#35356e",
-              color: "#fff"
+              color: "#fff",
+              textAlign: "center"
             }}
           >
             <TabPane tab="Circular" key="1">
