@@ -13,11 +13,11 @@ export default class  extends Component {
     render(){   
       return(
         <div className="homeMainDiv">
-          <div className="row1InHome" style={{height : "45vh" , width : "360px" , maxWidth : "90%" , color : "white" , display : "flex" , flexDirection : "column", justifyContent : "center" , alignItems : "center"}}>
+          <div className="row1InHome" style={{height : "45vh" , width : "360px" , maxWidth : "100%" , color : "white" , display : "flex" , flexDirection : "column", justifyContent : "center" , alignItems : "center"}}>
             <div style={{fontSize : "28px"}}>AT THE END OF THE DAY</div>
             <div style={{fontSize : "15px"}}>THE GOALS ARE SIMPLE: SAFETY AND SECURITY</div>
           </div>
-          <div style={{height : "45vh" , width : "360px", maxWidth : "90%" , backgroundColor : "#2B2082" , display : "flex" , justifyContent : "space-around" ,flexDirection : "column"}}>
+          <div style={{height : "45vh" ,paddingTop:5, width : "360px", maxWidth : "100%" , backgroundColor : "#2B2082" , display : "flex" , justifyContent : "space-around" ,flexDirection : "column"}}>
             <div style={{height : "27.5vh" , width : "inherit" , display : "flex" , flexDirection : "row" , justifyContent : "space-around" , alignItems : "center"}}>
               <div style={{color:"white",textAlign:"center"}}><div style={{height : "80px" , width : "80px" , backgroundColor : "#266FC5" , display : "flex" , alignItems :"center" , justifyContent : "center" , borderRadius : "40px"}}><Icon style={{fontSize : "25px"}} type="copy" theme="outlined" /></div><h3 style={{color:"white",fontSize:"13px",weight:"25px"}}>CIRCULAR</h3></div>
               <div style={{color:"white",textAlign:"center"}}><div style={{height : "80px" , width : "80px" , backgroundColor : "#FD0041" , display : "flex" , alignItems :"center" , justifyContent : "center" , borderRadius : "40px"}}><Icon style={{fontSize : "25px"}} type="copy" theme="outlined" /></div><h3 style={{color:"white",fontSize:"13px",weight:"25px"}}>FEES</h3></div>
@@ -29,7 +29,7 @@ export default class  extends Component {
               <div style={{color:"white",textAlign:"center"}}><div style={{height : "80px" , width : "80px" , backgroundColor : "#9F00C5" , display : "flex" , alignItems :"center" , justifyContent : "center" , borderRadius : "40px"}}><Icon style={{fontSize : "25px"}} type="picture" theme="outlined" /></div><h3 style={{color:"white",fontSize:"13px",weight:"25px"}}>GALLERY</h3></div>
             </div>
           </div>
-          <div style={{height : "10vh" , width : "360px" , maxWidth : "90%" , display : "flex" , justifyContent :"center" , backgroundColor :"#1F1670" , alignItems :"center",color:"white"}}>©appscook.com</div>
+          <div style={{height : "10vh" , width : "360px" , maxWidth : "100%" , display : "flex" , justifyContent :"center" , backgroundColor :"#1F1670" , alignItems :"center",color:"white"}}>©appscook.com</div>
         </div>
       );
     }
