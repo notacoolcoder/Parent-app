@@ -1,77 +1,88 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import './index.css';
+import "./index.css";
 
-
-import { Input, Icon } from 'antd';
-
+import { Input, Icon } from "antd";
 
 export default class Login extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-constructor(props){
-  super(props)
-
-  
-}
-
-componentDidMount(){
-
-
-}
-
+  componentDidMount() {
+    fetch(
+      "http://test.ssdiary.com/ssdiary/parentApp/login.html?userName=9544330995&password=ssdparent&schoolCode=0009/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+      .then(respose => {
+        return respose.json();
+      })
+      .then(value => {
+        console.log(value);
+      });
+  }
 
   render() {
-
-    
-   
-
     return (
+      <div className="flex">
+        <h1
+          style={{
+            color: "white",
+            textAlign: "center",
+            width: "100%",
+            marginTop: "20%"
+          }}
+        >
+          Parent Connect
+        </h1>
 
-      <div className="flex"  >
-      
-
-        <h1  style={{color: "white", textAlign:'center',width:'100%', marginTop: "20%"}}>Parent Connect</h1>
-         
-        <div className="card" >
+        <div className="card">
           <div className="flex1">
-            
-          
-          <div className="container">
-          <div >
-            <br/>
-            <br/>
-            <br/>
-        <Input
-        placeholder="Enter your username"
-        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-        style={{width:'100%'}}
-        placeholder="Username"
-      />
-      </div>
-      <br/>
-      <br/>
-      <div >
-        <Input
-        placeholder="Enter your password"
-        prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-        style={{width:'100%'}}
-        placeholder="Password"
-      />
-      <br/>
-      <br/>
-      <br/>
+            <div className="container">
+              <div>
+                <br />
+                <br />
+                <br />
+                <Input
+                  placeholder="Enter your username"
+                  prefix={
+                    <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+                  }
+                  style={{ width: "100%" }}
+                  placeholder="Username"
+                />
+              </div>
+              <br />
+              <br />
+              <div>
+                <Input
+                  placeholder="Enter your password"
+                  prefix={
+                    <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
+                  }
+                  style={{ width: "100%" }}
+                  placeholder="Password"
+                />
+                <br />
+                <br />
+                <br />
 
-      <div className="button" style={{textAlign: "center", fontWeight: "bold"}}>
-      <p>Login</p>
-
-      </div>
-      </div>
-           </div> 
+                <div
+                  className="button"
+                  style={{ textAlign: "center", fontWeight: "bold" }}
+                >
+                  <p>Login</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      
     );
   }
 }
-
