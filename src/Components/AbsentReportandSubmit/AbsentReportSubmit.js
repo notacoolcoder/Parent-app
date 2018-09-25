@@ -78,8 +78,8 @@ export default class extends Component {
               <DatePicker
                 className="date-picker date-picker-start"
                 disabledDate={this.disabledStartDate}
-                showTime
-                format="YYYY-MM-DD HH:mm:ss"
+                size="small"
+                format="YYYY-MM-DD"
                 value={startValue}
                 placeholder="Current date"
                 onChange={this.onStartChange}
@@ -89,10 +89,10 @@ export default class extends Component {
             <div className="date-picker-two-container">
               <h1>To</h1>
               <DatePicker
+                size="small"
                 className="date-picker date-picker-end"
                 disabledDate={this.disabledEndDate}
-                showTime
-                format="YYYY-MM-DD HH:mm:ss"
+                format="YYYY-MM-DD"
                 value={endValue}
                 placeholder="End date"
                 onChange={this.onEndChange}
