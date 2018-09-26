@@ -10,6 +10,7 @@ import StudentReport from "../Components/StudentReport";
 import AbsentReport from "../Components/AbsentReportandSubmit/AbsentReport.js";
 import AbsentReportSubmit from "../Components/AbsentReportandSubmit/AbsentReportSubmit.js";
 import Calender from "../Components/Calender";
+import Fee from "../Components/Fee";
 
 export default class extends Component {
   render() {
@@ -17,6 +18,7 @@ export default class extends Component {
       <div>
         <Router>
           <Switch>
+          <Route exact path="/fee" component={Fee} />
             <Route exact path="/calender" component={Calender} />
             <Route exact path="/absentreport" component={AbsentReport} />
             <Route
