@@ -11,3 +11,8 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.ant-carousel {
+  width: 360px ;
+  max-width: 100% ;
+}
