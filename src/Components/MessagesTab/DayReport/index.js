@@ -48,7 +48,16 @@ export default class extends Component {
     return (
       <div>
         {this.state.spin ? (
-          <Spin />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Spin />
+          </div>
         ) : (
           <div className="daily-report">
             <DatePicker

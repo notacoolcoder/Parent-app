@@ -35,6 +35,8 @@ export default class extends Component {
         return response.json();
       })
       .then(value => {
+        console.log("------", value);
+
         this.setState({ data: value });
       });
   }
