@@ -8,48 +8,30 @@ export default class extends Component {
     this.state = {
       workingDays: 96,
       absentDays: 5,
-      leave: [
-        {
-          id: 714817,
-          studentLeaveId: 0,
-          absentDate: "2018-01-11",
-          status: "Absent",
-          reason: "I have fever."
-        },
-        {
-          id: 714817,
-          studentLeaveId: 0,
-          absentDate: "2018-08-13",
-          status: "Absent",
-          reason: "I have fever."
-        },
-        {
-          id: 708625,
-          studentLeaveId: 0,
-          absentDate: "2018-08-03",
-          status: "Absent",
-          reason: "Brothers Marriage"
-        },
-        {
-          id: 702175,
-          studentLeaveId: 0,
-          absentDate: "2018-07-27",
-          status: "Absent",
-          reason: null
-        },
-        {
-          id: 685739,
-          studentLeaveId: 0,
-          absentDate: "2019-06-30",
-          status: "Absent",
-          reason: null
-        }
-      ],
+      leave: [],
       currentDate: new Date()
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    var data = {
+      studentId: 20570
+    };
+    fetch("http://test.ssdiary.com/ssdiary/parentApp/academic/absentReport/", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(value => {
+        console.log(value);
+        this.setState({ leave: value });
+      });
+  }
 
   render() {
     return (

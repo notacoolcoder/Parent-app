@@ -15,7 +15,28 @@ export default class extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    var data = {
+      studentId: 20570,
+      startDate: "Wed Jul 4 2018 12:39:48 GMT+0530 (IST)",
+      endDate: "Fri Jul 6 2018 12:39:48 GMT+0530 (IST)",
+      reason: "fever"
+    };
+    fetch("http://test.ssdiary.com/ssdiary/parentApp/academic/applyLeave", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(value => {
+        console.log(value);
+        this.setState({ leave: value });
+      });
+  }
 
   disabledStartDate = startValue => {
     const endValue = this.state.endValue;
@@ -41,9 +62,11 @@ export default class extends Component {
 
   onStartChange = value => {
     this.onChange("startValue", value);
+    console.log(value);
   };
 
   onEndChange = value => {
+    console.log(value);
     this.onChange("endValue", value);
   };
 

@@ -1,0 +1,50 @@
+.colorbar1 {
+  background-image: radial-gradient(
+    circle,
+    #114cc8,
+    #285bd2,
+    #3a69dd,
+    #4a78e6,
+    #5987f0
+  );
+}
+.masterdiv {
+  max-width: 360px;
+  width: 90%;
+  margin: auto;
+}
+.row {
+  width: 95%;
+  display: flex;
+  margin: auto;
+  border-bottom: 1px solid grey;
+}
+.column1 {
+  width: 60%;
+  border-right: 1px solid grey;
+}
+.column2 {
+  padding-left: 20px;
+  width: 30%;
+}
+.accordion {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.footercolor {
+  background-image: radial-gradient(
+    circle,
+    #114cc8,
+    #285bd2,
+    #3a69dd,
+    #4a78e6,
+    #5987f0
+  );
+  padding: 10px;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}

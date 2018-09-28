@@ -9,7 +9,23 @@ export default class Login extends Component {
     super(props);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    fetch(
+      "http://test.ssdiary.com/ssdiary/parentApp/login.html?userName=9544330995&password=ssdparent&schoolCode=0009",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+      .then(respose => {
+        return respose.json();
+      })
+      .then(value => {
+        console.log(value);
+      });
+  }
 
   render() {
     return (

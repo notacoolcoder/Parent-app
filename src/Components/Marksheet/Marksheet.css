@@ -1,0 +1,58 @@
+.marksheet {
+  width: 95%;
+  max-width: 360px;
+  margin: auto;
+}
+.colorbar3 {
+  background-image: radial-gradient(
+    circle,
+    #114cc8,
+    #285bd2,
+    #3a69dd,
+    #4a78e6,
+    #5987f0
+  );
+}
+.tabscolor {
+  background-color: #114cc8;
+}
+
+.tablediv {
+  margin: auto;
+  width: 90%;
+  margin-bottom: 20px;
+}
+table {
+  border: 1px solid black;
+  border-bottom: 0;
+}
+th,
+td {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+tr {
+}
+.footercolor {
+  background-image: radial-gradient(
+    circle,
+    #114cc8,
+    #285bd2,
+    #3a69dd,
+    #4a78e6,
+    #5987f0
+  );
+  padding: 10px;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  clear: both;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  line-height: normal;
+  margin: 0;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
