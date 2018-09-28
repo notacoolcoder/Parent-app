@@ -21,7 +21,7 @@ export default class extends Component {
       studentId: 20570,
       date: "Mon Jun 11 2018 09:39:48 GMT+0530 (IST)"
     };
-    fetch("http://test.ssdiary.com//ssdiary/parentApp/dailyreport/dayReport/", {
+    fetch("https://ssdiary.com//ssdiary/parentApp/dailyreport/dayReport/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

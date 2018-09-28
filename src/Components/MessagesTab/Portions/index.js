@@ -15,7 +15,7 @@ export default class extends Component {
       count: 5
     };
     fetch(
-      "http://test.ssdiary.com/ssdiary/parentApp/dailyreport/portionTaken/countwise/",
+      "https://ssdiary.com/ssdiary/parentApp/dailyreport/portionTaken/countwise/",
       {
         method: "POST",
         body: JSON.stringify(data),

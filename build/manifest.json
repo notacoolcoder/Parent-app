@@ -1,6 +1,7 @@
 {
   "name": "Parent App",
   "short_name": "Parent App",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "windows10/Square71x71Logo.scale-400.png",

@@ -24,7 +24,7 @@ export default class extends Component {
     this.setState({
       date: new Date().toString().slice(0, 15)
     });
-    fetch("http://test.ssdiary.com/ssdiary/parentApp/circulars/countwise/", {
+    fetch("https://ssdiary.com/ssdiary/parentApp/circulars/countwise/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

@@ -20,7 +20,7 @@ export default class extends Component {
       divisionId: 1249
     };
     fetch(
-      "http://be.ssdiary.com/ClassTimetable/mobile/app/loadClassTimetable/",
+      "https://be.ssdiary.com/ClassTimetable/mobile/app/loadClassTimetable/",
       {
         method: "POST",
         body: JSON.stringify(data),

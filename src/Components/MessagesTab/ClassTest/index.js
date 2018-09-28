@@ -15,16 +15,13 @@ export default class extends Component {
       offset: 0,
       count: 5
     };
-    fetch(
-      "http://test.ssdiary.com/ssdiary/parentApp/dailyreport/test/countwise/",
-      {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
+    fetch("https://ssdiary.com/ssdiary/parentApp/dailyreport/test/countwise/", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
       }
-    )
+    })
       .then(response => {
         return response.json();
       })

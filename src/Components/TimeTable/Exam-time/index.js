@@ -17,7 +17,7 @@ export default class extends Component {
     var data = {
       studentId: 20570
     };
-    fetch("http://test.ssdiary.com/ssdiary/parentApp/academic/examTimetable/", {
+    fetch("https://ssdiary.com/ssdiary/parentApp/academic/examTimetable/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
