@@ -1,0 +1,88 @@
+.diary {
+  max-width: 360px;
+  width: 95%;
+  margin: auto;
+  flex-direction: column;
+  display: flex;
+}
+.diary-circular {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.diary-circular h4 {
+  margin: auto;
+}
+.message-card-diary {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  box-shadow: 1px 1px 2px #000;
+  margin: 4px;
+}
+.day-report {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.day-report h4 {
+  margin: auto;
+}
+.daily-report-dairy {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+.homework-diary {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.homework-diary h4 {
+  margin: auto;
+}
+.homework-dairy-get {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+.test-diary {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.test-diary h4 {
+  margin: auto;
+}
+.test-dairy-get {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+.instruction-diary {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.instruction-diary h4 {
+  margin: auto;
+}
+.instruction-dairy-get {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+.files-diary {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.files-diary h4 {
+  margin: auto;
+}
+.files-dairy-get {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}

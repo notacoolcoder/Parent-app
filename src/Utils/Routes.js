@@ -15,7 +15,7 @@ import AbsentReport from "../Components/AbsentReportandSubmit/AbsentReport.js";
 import AbsentReportSubmit from "../Components/AbsentReportandSubmit/AbsentReportSubmit.js";
 import Calender from "../Components/Calender";
 import Fee from "../Components/Fee";
-
+import Diary from "../Components/Diary";
 import Library from "../Components/Library/Library";
 import Marksheet from "../Components/Marksheet/Marksheet";
 export default class extends Component {
@@ -182,13 +182,14 @@ export default class extends Component {
               path="/absentreportsubmit"
               component={AbsentReportSubmit}
             />
-            <Route path="/marksheet" component={Marksheet} />
-            <Route path="/library" component={Library} />
+            <Route exact path="/marksheet" component={Marksheet} />
+            <Route exact path="/library" component={Library} />
             <Route exact path="/studentreport" component={StudentReport} />
             <Route exact path="/timetable" component={Timetable} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/" component={Home} />
+            <Route exact path="/diary" component={Diary} />
             <Route exact path="/messages" component={Messages} />
           </Switch>
         </Router>
