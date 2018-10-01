@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./AbsentReport.css";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 export default class extends Component {
   constructor(props) {
@@ -44,7 +45,9 @@ export default class extends Component {
               {this.state.absentDays}/{this.state.workingDays}
             </span>
           </h1>
-          <button className="send-leave">Send Leave</button>
+          <Link to="/absentreportsubmit">
+            <button className="send-leave">Send Leave</button>
+          </Link>
         </div>
 
         <div className="leave-list-container">

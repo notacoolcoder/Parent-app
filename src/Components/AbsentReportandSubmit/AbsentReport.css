@@ -32,6 +32,7 @@
 .absent-report-main-container .send-leave-container .send-leave {
   background-color: #ec2427;
   border: none;
+  cursor: pointer;
   border-radius: 18px;
   color: white;
   font-size: 10px;
