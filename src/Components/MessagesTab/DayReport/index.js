@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./index.css";
 import { DatePicker, Spin, Icon } from "antd";
 import moment from "moment";
+import { baseUrl } from "./../../../Api";
 export default class extends Component {
   constructor(props) {
     super(props);
@@ -21,16 +22,13 @@ export default class extends Component {
       studentId: 20570,
       date: "Mon Jun 11 2018 09:39:48 GMT+0530 (IST)"
     };
-    fetch(
-      "https://test.ssdiary.com//ssdiary/parentApp/dailyreport/dayReport/",
-      {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
+    fetch(baseUrl + "dailyreport/dayReport/", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
       }
-    )
+    })
       .then(response => {
         return response.json();
       })

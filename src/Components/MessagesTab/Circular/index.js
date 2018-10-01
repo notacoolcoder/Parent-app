@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ExpandableCard from "../../ExpandableCard/ExpandableCard";
 import "./index.css";
+import { baseUrl } from "./../../../Api";
 export default class extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +25,7 @@ export default class extends Component {
     this.setState({
       date: new Date().toString().slice(0, 15)
     });
-    fetch("https://ssdiary.com/ssdiary/parentApp/circulars/countwise/", {
+    fetch(baseUrl + "circulars/countwise/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

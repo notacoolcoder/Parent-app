@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./index.css";
 import DropdownCard from "../../DropdownCard";
+import { baseUrl } from "./../../../Api";
 export default class extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +16,7 @@ export default class extends Component {
       offset: 0,
       count: 5
     };
-    fetch("https://ssdiary.com/ssdiary/parentApp/dailyreport/test/countwise/", {
+    fetch(baseUrl + "dailyreport/test/countwise/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

@@ -14,6 +14,7 @@ import {
   TableRowColumn
 } from "material-ui/Table";
 import MarksheetCard from "../MarksheetCard";
+import { baseUrl } from "./../../Api";
 
 class Marksheet extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class Marksheet extends Component {
     var data = {
       studentId: 20570
     };
-    fetch("http://test.ssdiary.com/ssdiary/parentApp/academic/markSheet/", {
+    fetch(baseUrl + "academic/markSheet/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

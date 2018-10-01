@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./AbsentReport.css";
 import { DatePicker } from "antd";
 import moment from "moment";
+import { baseUrl } from "./../../Api";
 
 export default class extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export default class extends Component {
       endDate: "Fri Jul 6 2018 12:39:48 GMT+0530 (IST)",
       reason: "fever"
     };
-    fetch("http://test.ssdiary.com/ssdiary/parentApp/academic/applyLeave", {
+    fetch(baseUrl + "academic/applyLeave", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

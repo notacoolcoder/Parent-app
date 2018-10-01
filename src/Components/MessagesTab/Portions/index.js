@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import DropdownCard from "../../DropdownCard";
+import { baseUrl } from "./../../../Api";
 
 export default class extends Component {
   constructor(props) {
@@ -14,16 +15,13 @@ export default class extends Component {
       offset: 0,
       count: 5
     };
-    fetch(
-      "https://ssdiary.com/ssdiary/parentApp/dailyreport/portionTaken/countwise/",
-      {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
+    fetch(baseUrl + "dailyreport/portionTaken/countwise/", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
       }
-    )
+    })
       .then(response => {
         return response.json();
       })

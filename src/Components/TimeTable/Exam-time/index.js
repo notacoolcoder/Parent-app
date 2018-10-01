@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./index.css";
 import { Icon } from "antd";
 import ExamCard from "./ExamCard";
+import { baseUrl } from "./../../../Api";
 
 export default class extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ export default class extends Component {
     var data = {
       studentId: 20570
     };
-    fetch("https://ssdiary.com/ssdiary/parentApp/academic/examTimetable/", {
+    fetch(baseUrl + "academic/examTimetable/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

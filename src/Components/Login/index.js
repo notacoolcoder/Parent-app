@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./index.css";
 import { Input, Icon } from "antd";
 import createHistory from "history/createBrowserHistory";
+import { baseUrl } from "./../../Api";
 const history = createHistory();
 
 export default class Login extends Component {
@@ -20,7 +21,8 @@ export default class Login extends Component {
   }
   onLogin = () => {
     fetch(
-      "https://ssdiary.com/ssdiary/parentApp/login.html?userName=9544330995&password=ssdparent&schoolCode=0009",
+      baseUrl +
+        "login.html?userName=9544330995&password=ssdparent&schoolCode=0009",
       {
         method: "POST",
         headers: {
