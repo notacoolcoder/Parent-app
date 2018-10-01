@@ -187,8 +187,8 @@ export default class extends Component {
             <Route exact path="/studentreport" component={StudentReport} />
             <Route exact path="/timetable" component={Timetable} />
             <Route exact path="/profile" component={Profile} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" exact component={Login} />
+            <Route exact path="/home" component={Home} />
             <Route exact path="/diary" component={Diary} />
             <Route exact path="/messages" component={Messages} />
           </Switch>
