@@ -6,3 +6,10 @@
 .ant-tabs-nav .ant-tabs-tab {
   color: #f0f2f5;
 }
+
+.ant-tabs-tab-prev {
+  color: white;
+}
+.ant-tabs-tab-next {
+  color: white;
+}
