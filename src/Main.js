@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AppBar from "material-ui/AppBar";
 
 import Drawer from "material-ui/Drawer";
@@ -54,25 +54,33 @@ export default class extends Component {
         <Drawer
           containerStyle={{
             backgroundColor: "rgb(53, 53, 110)",
-            color: "#ffffff"
+            color: "#ffffff",
+            paddingTop: 20
           }}
           docked={false}
           width={225}
           open={this.state.open}
           onRequestChange={open => this.setState({ open })}
         >
-          <div style={this.style.menuItem} onClick={this.handleClose}>
-            <Icon style={{ width: "30%" }} type="appstore" theme="outlined" />
-            <div style={{ width: "70%" }}>Menu</div>
-          </div>
-          <div style={this.style.menuItem} onClick={this.handleClose}>
-            <Icon style={{ width: "30%" }} type="profile" theme="outlined" />
-            <div style={{ width: "70%" }}>Profile</div>
-          </div>
-          <div style={this.style.menuItem} onClick={this.handleClose}>
-            <Icon style={{ width: "30%" }} type="message" theme="outlined" />
-            <div style={{ width: "70%" }}>Messages</div>
-          </div>
+          <Link to="/home">
+            <div style={this.style.menuItem} onClick={this.handleClose}>
+              <Icon style={{ width: "30%" }} type="appstore" theme="outlined" />
+              <div style={{ width: "70%" }}>Menu</div>
+            </div>
+          </Link>
+          <Link to="/profile">
+            <div style={this.style.menuItem} onClick={this.handleClose}>
+              <Icon style={{ width: "30%" }} type="profile" theme="outlined" />
+              <div style={{ width: "70%" }}>Profile</div>
+            </div>
+          </Link>
+          <Link to="/messages">
+            <div style={this.style.menuItem} onClick={this.handleClose}>
+              <Icon style={{ width: "30%" }} type="message" theme="outlined" />
+              <div style={{ width: "70%" }}>Messages</div>
+            </div>
+          </Link>
+
           <div style={this.style.menuItem} onClick={this.handleClose}>
             <Icon
               style={{ width: "30%" }}
