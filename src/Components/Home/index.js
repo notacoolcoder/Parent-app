@@ -194,30 +194,32 @@ export default class extends Component {
                   </h3>
                 </div>
               </Link>
-              <div style={{ color: "white", textAlign: "center" }}>
-                <div
-                  style={{
-                    height: "80px",
-                    width: "80px",
-                    backgroundColor: "#9F00C5",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "40px"
-                  }}
-                >
-                  <Icon
-                    style={{ fontSize: "25px" }}
-                    type="switcher"
-                    theme="outlined"
-                  />
+              <Link to="/marksheet">
+                <div style={{ color: "white", textAlign: "center" }}>
+                  <div
+                    style={{
+                      height: "80px",
+                      width: "80px",
+                      backgroundColor: "#9F00C5",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "40px"
+                    }}
+                  >
+                    <Icon
+                      style={{ fontSize: "25px" }}
+                      type="switcher"
+                      theme="outlined"
+                    />
+                  </div>
+                  <h3
+                    style={{ color: "white", fontSize: "13px", weight: "25px" }}
+                  >
+                    ACADEMICS
+                  </h3>
                 </div>
-                <h3
-                  style={{ color: "white", fontSize: "13px", weight: "25px" }}
-                >
-                  ACADEMICS
-                </h3>
-              </div>
+              </Link>
             </div>
           </div>
           <div
@@ -267,54 +269,58 @@ export default class extends Component {
                   </h3>
                 </div>
               </Link>
-              <div style={{ color: "white", textAlign: "center" }}>
-                <div
-                  style={{
-                    height: "80px",
-                    width: "80px",
-                    backgroundColor: "#FD0041",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "40px"
-                  }}
-                >
-                  <Icon
-                    style={{ fontSize: "25px" }}
-                    type="fork"
-                    theme="outlined"
-                  />
+              <Link to="/absentreport">
+                <div style={{ color: "white", textAlign: "center" }}>
+                  <div
+                    style={{
+                      height: "80px",
+                      width: "80px",
+                      backgroundColor: "#FD0041",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "40px"
+                    }}
+                  >
+                    <Icon
+                      style={{ fontSize: "25px" }}
+                      type="fork"
+                      theme="outlined"
+                    />
+                  </div>
+                  <h3
+                    style={{ color: "white", fontSize: "13px", weight: "25px" }}
+                  >
+                    LEAVES
+                  </h3>
                 </div>
-                <h3
-                  style={{ color: "white", fontSize: "13px", weight: "25px" }}
-                >
-                  LEAVES
-                </h3>
-              </div>
-              <div style={{ color: "white", textAlign: "center" }}>
-                <div
-                  style={{
-                    height: "80px",
-                    width: "80px",
-                    backgroundColor: "#E6B000",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "40px"
-                  }}
-                >
-                  <Icon
-                    style={{ fontSize: "25px" }}
-                    type="hdd"
-                    theme="outlined"
-                  />
+              </Link>
+              <Link to="/library">
+                <div style={{ color: "white", textAlign: "center" }}>
+                  <div
+                    style={{
+                      height: "80px",
+                      width: "80px",
+                      backgroundColor: "#E6B000",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "40px"
+                    }}
+                  >
+                    <Icon
+                      style={{ fontSize: "25px" }}
+                      type="hdd"
+                      theme="outlined"
+                    />
+                  </div>
+                  <h3
+                    style={{ color: "white", fontSize: "13px", weight: "25px" }}
+                  >
+                    LIBRARY
+                  </h3>
                 </div>
-                <h3
-                  style={{ color: "white", fontSize: "13px", weight: "25px" }}
-                >
-                  LIBRARY
-                </h3>
-              </div>
+              </Link>
             </div>
             <div
               style={{

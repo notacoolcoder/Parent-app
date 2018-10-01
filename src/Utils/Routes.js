@@ -175,7 +175,7 @@ export default class extends Component {
         <Router>
           <Switch>
             <Route exact path="/fee" component={Fee} />
-            <Route exact path="/calender" component={Calender} />
+            <Route exact path="/calendar" component={Calender} />
             <Route exact path="/absentreport" component={AbsentReport} />
             <Route
               exact
