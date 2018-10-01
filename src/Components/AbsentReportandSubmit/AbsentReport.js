@@ -3,6 +3,8 @@ import "./AbsentReport.css";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
+import { baseUrl } from "./../../Api";
+
 export default class extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,7 @@ export default class extends Component {
     var data = {
       studentId: 20570
     };
-    fetch("http://test.ssdiary.com/ssdiary/parentApp/academic/absentReport/", {
+    fetch(baseUrl + "academic/absentReport/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

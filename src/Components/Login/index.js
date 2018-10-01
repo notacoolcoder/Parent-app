@@ -20,7 +20,7 @@ export default class Login extends Component {
   }
   onLogin = () => {
     fetch(
-      "http://test.ssdiary.com/ssdiary/parentApp/login.html?userName=9544330995&password=ssdparent&schoolCode=0009",
+      "https://ssdiary.com/ssdiary/parentApp/login.html?userName=9544330995&password=ssdparent&schoolCode=0009",
       {
         method: "POST",
         headers: {
