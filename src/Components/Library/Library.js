@@ -6,6 +6,9 @@ import RaisedButton from "material-ui/RaisedButton";
 import { Step, Stepper, StepButton, StepContent } from "material-ui/Stepper";
 
 import b from "./05.jpg";
+import { Menu } from "antd";
+
+const SubMenu = Menu.SubMenu;
 
 class Library extends Component {
   state = {
@@ -28,19 +31,7 @@ class Library extends Component {
 
   render() {
     return (
-      <div className="masterdiv">
-        <AppBar
-          className="colorbar1"
-          title="Parents Connect"
-          iconElementRight={
-            <img
-              src={b}
-              alt="userpic"
-              style={{ borderRadius: "40px", width: "40px", height: "40px" }}
-            />
-          }
-        />
-
+      <div className="masterdiv" style={{ paddingBottom: 5 }}>
         {/* The below code is the table one. */}
         <div className="row">
           <div className="column1">
@@ -70,75 +61,23 @@ class Library extends Component {
 
                 Accordion code starts */}
         <div className="accordion">
-          <Stepper
-            activeStep={this.state.stepIndex}
-            linear={false}
-            orientation="vertical"
+          <Menu
+            mode="inline"
+            style={{ width: "100%", borderRight: 0, textAlign: "left" }}
           >
-            <Step>
-              <StepButton
-                style={{ backgroundColor: "#8FC549" }}
-                onClick={() => this.setState({ stepIndex: 0 })}
-              >
-                <p
-                  style={{
-                    margin: "auto",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    color: "white"
-                  }}
-                >
-                  Present Books Taken
-                </p>
-              </StepButton>
-              <StepContent>
-                <li>
-                  <ol>Balarama</ol>
-                  <ol>Wings of fire</ol>
-                </li>
-              </StepContent>
-            </Step>
-            <Step>
-              <StepButton
-                style={{ backgroundColor: "#00A99D" }}
-                onClick={() => this.setState({ stepIndex: 1 })}
-              >
-                <p
-                  style={{
-                    margin: "auto",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    color: "white"
-                  }}
-                >
-                  Book's History
-                </p>
-              </StepButton>
-              <StepContent>
-                <p>No history</p>
-              </StepContent>
-            </Step>
-            <Step>
-              <StepButton
-                style={{ backgroundColor: "#B25EA1" }}
-                onClick={() => this.setState({ stepIndex: 2 })}
-              >
-                <p
-                  style={{
-                    margin: "auto",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    color: "white"
-                  }}
-                >
-                  Book a book
-                </p>
-              </StepButton>
-              <StepContent>
-                <p>Come after some time. All books have been issued.</p>
-              </StepContent>
-            </Step>
-          </Stepper>
+            <SubMenu key="pre" title="Present Books Taken">
+              <Menu.Item>Balarama</Menu.Item>
+              <Menu.Item>Wings of Fire</Menu.Item>
+            </SubMenu>
+            <SubMenu key="his" title="Book History">
+              <Menu.Item>No items</Menu.Item>
+            </SubMenu>
+            <SubMenu key="book" title="Book a book">
+              <Menu.Item>
+                Come after some time. All books have been issued.
+              </Menu.Item>
+            </SubMenu>
+          </Menu>
         </div>
         {/* footer codde */}
         {/* Footer is not sticking to the bottom. */}

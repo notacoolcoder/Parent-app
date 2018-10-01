@@ -36,7 +36,7 @@ export default class Login extends Component {
           console.log(value);
 
           localStorage.setItem("data", JSON.stringify(value));
-          this.props.history.push("/");
+          this.props.history.push("/home");
         }
       });
   };
