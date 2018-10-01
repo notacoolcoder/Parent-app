@@ -4,11 +4,11 @@ import "./index.css";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
-import Routes from "./Utils/Routes";
+
 registerServiceWorker();
 ReactDOM.render(
   <MuiThemeProvider>
-    <Routes />
+    <App />
   </MuiThemeProvider>,
   document.getElementById("root")
 );
