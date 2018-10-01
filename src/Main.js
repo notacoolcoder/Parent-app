@@ -12,6 +12,17 @@ export default class extends Component {
     this.state = {
       open: false
     };
+    this.style = {
+      menuItem: {
+        height: "40px",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-around",
+        fontSize: "20px",
+        alignItems: "center",
+        color: "#ffffff"
+      }
+    };
   }
 
   handleToggle = () => this.setState({ open: !this.state.open });
@@ -50,63 +61,19 @@ export default class extends Component {
           open={this.state.open}
           onRequestChange={open => this.setState({ open })}
         >
-          <div
-            style={{
-              height: "40px",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              fontSize: "20px",
-              alignItems: "center",
-              color: "#ffffff"
-            }}
-            onClick={this.handleClose}
-          >
+          <div style={this.style.menuItem} onClick={this.handleClose}>
             <Icon style={{ width: "30%" }} type="appstore" theme="outlined" />
             <div style={{ width: "70%" }}>Menu</div>
           </div>
-          <div
-            style={{
-              height: "40px",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              fontSize: "20px",
-              alignItems: "center",
-              color: "#ffffff"
-            }}
-            onClick={this.handleClose}
-          >
+          <div style={this.style.menuItem} onClick={this.handleClose}>
             <Icon style={{ width: "30%" }} type="profile" theme="outlined" />
             <div style={{ width: "70%" }}>Profile</div>
           </div>
-          <div
-            style={{
-              height: "40px",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              fontSize: "20px",
-              alignItems: "center",
-              color: "#ffffff"
-            }}
-            onClick={this.handleClose}
-          >
+          <div style={this.style.menuItem} onClick={this.handleClose}>
             <Icon style={{ width: "30%" }} type="message" theme="outlined" />
             <div style={{ width: "70%" }}>Messages</div>
           </div>
-          <div
-            style={{
-              height: "40px",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              fontSize: "20px",
-              alignItems: "center",
-              color: "#ffffff"
-            }}
-            onClick={this.handleClose}
-          >
+          <div style={this.style.menuItem} onClick={this.handleClose}>
             <Icon
               style={{ width: "30%" }}
               type="notification"
@@ -114,48 +81,15 @@ export default class extends Component {
             />
             <div style={{ width: "70%" }}>Notifications</div>
           </div>
-          <div
-            style={{
-              height: "40px",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              fontSize: "20px",
-              alignItems: "center",
-              color: "#ffffff"
-            }}
-            onClick={this.handleClose}
-          >
+          <div style={this.style.menuItem} onClick={this.handleClose}>
             <Icon style={{ width: "30%" }} type="contacts" theme="outlined" />
             <div style={{ width: "70%" }}>Contacts</div>
           </div>
-          <div
-            style={{
-              height: "40px",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              fontSize: "20px",
-              alignItems: "center",
-              color: "#ffffff"
-            }}
-            onClick={this.handleClose}
-          >
+          <div style={this.style.menuItem} onClick={this.handleClose}>
             <Icon style={{ width: "30%" }} type="setting" theme="outlined" />
             <div style={{ width: "70%" }}>Settings</div>
           </div>
-          <div
-            style={{
-              height: "40px",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              fontSize: "20px",
-              alignItems: "center",
-              color: "#ffffff"
-            }}
-            onClick={this.handleClose}
-          >
+          <div style={this.style.menuItem} onClick={this.handleClose}>
             <Icon style={{ width: "30%" }} type="poweroff" theme="outlined" />
             <div style={{ width: "70%" }}>Log Out</div>
           </div>

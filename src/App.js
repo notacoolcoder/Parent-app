@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import AppBar from "material-ui/AppBar";
+
 import Home from "./Components/Home";
 import Messages from "./Components/MessagesTab";
-import Drawer from "material-ui/Drawer";
-import MenuItem from "material-ui/MenuItem";
-import { Icon } from "antd";
-import RaisedButton from "material-ui/RaisedButton";
+
 import Login from "./Components/Login";
 import Profile from "./Components/Profile";
 import Timetable from "./Components/TimeTable";
