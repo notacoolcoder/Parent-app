@@ -11,3 +11,16 @@ var config = {
 firebase.initializeApp(config);
 
 export const messaging = firebase.messaging();
+export const db = firebase.database();
+
+export const askForPermissioToReceiveNotifications = async () => {
+  try {
+    await messaging.requestPermission();
+    const token = await messaging.getToken();
+    console.log("usertoken:", token);
+
+    return token;
+  } catch (error) {
+    console.error(error);
+  }
+};

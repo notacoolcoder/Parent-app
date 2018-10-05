@@ -1,14 +1,20 @@
 import React, { Component } from "react";
-import { Icon, Carousel } from "antd";
+import { Icon, Carousel, message } from "antd";
 import "./index.css";
 import { Link } from "react-router-dom";
+import { askForPermissioToReceiveNotifications } from "../../Utils/config";
 
 export default class extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { token: "" };
   }
   componentDidMount() {
+    askForPermissioToReceiveNotifications().then(
+      function(data) {
+        this.setState({ token: data });
+      }.bind(this)
+    );
     var data = JSON.parse(localStorage.getItem("data"));
     console.log(data);
   }
@@ -32,6 +38,7 @@ export default class extends Component {
           <div style={{ fontSize: "28px" }}>AT THE END OF THE DAY</div>
           <div style={{ fontSize: "15px" }}>
             THE GOALS ARE SIMPLE: SAFETY AND SECURITY
+            {this.state.token}
           </div>
         </div>
         <Carousel>
