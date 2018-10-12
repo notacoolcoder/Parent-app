@@ -1,1 +1,1 @@
-export const baseUrl = "http://ssdiary.com/ssdiary/parentApp/";
+export const baseUrl = "http://test.ssdiary.com/ssdiary/parentApp/";

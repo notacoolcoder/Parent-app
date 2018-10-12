@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Icon, Carousel, message } from "antd";
 import "./index.css";
 import { Link } from "react-router-dom";
-import { askForPermissioToReceiveNotifications } from "../../Utils/config";
+//import { askForPermissioToReceiveNotifications } from "../../Utils/config";
 
 export default class extends Component {
   constructor(props) {
@@ -10,11 +10,11 @@ export default class extends Component {
     this.state = { token: "" };
   }
   componentDidMount() {
-    askForPermissioToReceiveNotifications().then(
-      function(data) {
-        this.setState({ token: data });
-      }.bind(this)
-    );
+    // askForPermissioToReceiveNotifications().then(
+    //   function(data) {
+    //     this.setState({ token: data });
+    //   }.bind(this)
+    // );
     var data = JSON.parse(localStorage.getItem("data"));
     console.log(data);
   }
