@@ -2,21 +2,20 @@ import React, { Component } from "react";
 import { Icon, Carousel, message } from "antd";
 import "./index.css";
 import { Link } from "react-router-dom";
+import { Consumer } from "../../Context";
+
 //import { askForPermissioToReceiveNotifications } from "../../Utils/config";
 
-export default class extends Component {
+export class Home extends Component {
   constructor(props) {
     super(props);
     this.state = { token: "" };
   }
   componentDidMount() {
-    // askForPermissioToReceiveNotifications().then(
-    //   function(data) {
-    //     this.setState({ token: data });
-    //   }.bind(this)
-    // );
-    var data = JSON.parse(localStorage.getItem("data"));
-    console.log(data);
+    const match = this.props.match.params;
+    console.log("id", match.id);
+
+    this.props.setData(match.id);
   }
 
   render() {
@@ -438,3 +437,9 @@ export default class extends Component {
     );
   }
 }
+
+export default props => (
+  <Consumer>
+    {({ data, setData }) => <Home {...props} data={data} setData={setData} />}
+  </Consumer>
+);

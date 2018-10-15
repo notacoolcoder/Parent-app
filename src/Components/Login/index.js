@@ -3,9 +3,12 @@ import "./index.css";
 import { Input, Icon } from "antd";
 import createHistory from "history/createBrowserHistory";
 import { baseUrl } from "./../../Api";
+
+import { Consumer } from "./../../Context/index";
+
 const history = createHistory();
 
-export default class Login extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +18,12 @@ export default class Login extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    const match = this.props.match.params;
+    console.log("-----", match.id, match.a, match.b);
+    console.log("dasadsa----", this.props.data);
+  }
+
   onChangefield(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -105,3 +113,7 @@ export default class Login extends Component {
     );
   }
 }
+
+export default props => (
+  <Consumer>{data => <Login {...props} data={data} />}</Consumer>
+);

@@ -16,34 +16,37 @@ import Diary from "./Components/Diary";
 import Library from "./Components/Library/Library";
 import Marksheet from "./Components/Marksheet/Marksheet";
 import Main from "./Main";
+import { Provider } from "./Context";
 export default class App extends Component {
   render() {
     return (
       <div>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Login} />
-            <Main>
-              <Route exact path="/fee" component={Fee} />
-              <Route exact path="/calendar" component={Calender} />
-              <Route exact path="/absentreport" component={AbsentReport} />
-              <Route
-                exact
-                path="/absentreportsubmit"
-                component={AbsentReportSubmit}
-              />
-              <Route exact path="/marksheet" component={Marksheet} />
-              <Route exact path="/library" component={Library} />
-              <Route exact path="/studentreport" component={StudentReport} />
-              <Route exact path="/timetable" component={Timetable} />
-              <Route exact path="/profile" component={Profile} />
+        <Provider>
+          <Router>
+            <Switch>
+              <Route exact path="/:id" component={Home} />
+              <Main>
+                <Route exact path="/fee" component={Fee} />
+                <Route exact path="/calendar" component={Calender} />
+                <Route exact path="/absentreport" component={AbsentReport} />
+                <Route
+                  exact
+                  path="/absentreportsubmit"
+                  component={AbsentReportSubmit}
+                />
+                <Route exact path="/marksheet" component={Marksheet} />
+                <Route exact path="/library" component={Library} />
+                <Route exact path="/studentreport" component={StudentReport} />
+                <Route exact path="/timetable" component={Timetable} />
+                <Route exact path="/profile" component={Profile} />
 
-              <Route exact path="/home" component={Home} />
-              <Route exact path="/diary" component={Diary} />
-              <Route exact path="/messages" component={Messages} />
-            </Main>
-          </Switch>
-        </Router>
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/diary" component={Diary} />
+                <Route exact path="/messages" component={Messages} />
+              </Main>
+            </Switch>
+          </Router>
+        </Provider>
       </div>
     );
   }
