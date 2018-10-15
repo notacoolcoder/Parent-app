@@ -24,25 +24,30 @@ export default class App extends Component {
         <Provider>
           <Router>
             <Switch>
-              <Route exact path="/:id" component={Home} />
+              <Route exact path="/" component={Login} />
               <Main>
-                <Route exact path="/fee" component={Fee} />
-                <Route exact path="/calendar" component={Calender} />
-                <Route exact path="/absentreport" component={AbsentReport} />
-                <Route
-                  exact
-                  path="/absentreportsubmit"
-                  component={AbsentReportSubmit}
-                />
-                <Route exact path="/marksheet" component={Marksheet} />
-                <Route exact path="/library" component={Library} />
-                <Route exact path="/studentreport" component={StudentReport} />
-                <Route exact path="/timetable" component={Timetable} />
-                <Route exact path="/profile" component={Profile} />
-
-                <Route exact path="/home" component={Home} />
-                <Route exact path="/diary" component={Diary} />
-                <Route exact path="/messages" component={Messages} />
+                <Switch>
+                  <Route exact path="/fee" component={Fee} />
+                  <Route exact path="/calendar" component={Calender} />
+                  <Route exact path="/absentreport" component={AbsentReport} />
+                  <Route
+                    exact
+                    path="/absentreportsubmit"
+                    component={AbsentReportSubmit}
+                  />
+                  <Route exact path="/marksheet" component={Marksheet} />
+                  <Route exact path="/library" component={Library} />
+                  <Route
+                    exact
+                    path="/studentreport"
+                    component={StudentReport}
+                  />
+                  <Route exact path="/timetable" component={Timetable} />
+                  <Route exact path="/profile" component={Profile} />
+                  <Route exact path="/:id" component={Home} />
+                  <Route exact path="/diary" component={Diary} />
+                  <Route exact path="/messages" component={Messages} />
+                </Switch>
               </Main>
             </Switch>
           </Router>

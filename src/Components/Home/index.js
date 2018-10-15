@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Consumer } from "../../Context";
 
 //import { askForPermissioToReceiveNotifications } from "../../Utils/config";
+import { baseUrl } from "./../../Api";
 
 export class Home extends Component {
   constructor(props) {
@@ -12,10 +13,26 @@ export class Home extends Component {
     this.state = { token: "" };
   }
   componentDidMount() {
-    const match = this.props.match.params;
-    console.log("id", match.id);
+    const id = this.props.match.params.id;
+    console.log("id", id);
 
-    this.props.setData(match.id);
+    this.props.setData(id);
+
+    fetch(baseUrl + "profile.html?parentId=" + id + "&schoolCode=0009", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(respose => {
+        console.log("response", respose);
+
+        return respose.json();
+      })
+      .then(value => {
+        console.log(value);
+        localStorage.setItem("data", JSON.stringify(value));
+      });
   }
 
   render() {
