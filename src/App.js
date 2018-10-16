@@ -27,6 +27,8 @@ export default class App extends Component {
               <Route exact path="/" component={Login} />
               <Main>
                 <Switch>
+                  <Route exact path="/diary" component={Diary} />
+                  <Route exact path="/messages" component={Messages} />
                   <Route exact path="/fee" component={Fee} />
                   <Route exact path="/calendar" component={Calender} />
                   <Route exact path="/absentreport" component={AbsentReport} />
@@ -45,8 +47,6 @@ export default class App extends Component {
                   <Route exact path="/timetable" component={Timetable} />
                   <Route exact path="/profile" component={Profile} />
                   <Route exact path="/:id" component={Home} />
-                  <Route exact path="/diary" component={Diary} />
-                  <Route exact path="/messages" component={Messages} />
                 </Switch>
               </Main>
             </Switch>
