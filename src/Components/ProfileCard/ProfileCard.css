@@ -2,7 +2,7 @@
   width: 96%;
   max-width: 360px;
   display: flex;
-  height: 110px;
+  min-height: 110px;
   flex-direction: column;
 }
 .profile-card {

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import "./ProfileCard.css";
+
+import { Icon } from "antd";
+import { Collapse } from "react-collapse";
 export default class ProfileCard extends Component {
   constructor(props) {
     super(props);
@@ -49,9 +52,14 @@ export default class ProfileCard extends Component {
             </span>
           </div>
         </div>
+        <Icon
+          type={this.state.expand ? "up" : "down"}
+          style={{ cursor: "pointer" }}
+          onClick={this.onClickProfile}
+        />
         <div>
-          {this.state.expand ? (
-            <div className="expanded-card">
+          <Collapse isOpened={this.state.expand}>
+            <div style={{ display: "flex", flexDirection: "column" }}>
               <span>
                 Blood:
                 {this.props.data.bloodGroup}
@@ -77,7 +85,7 @@ export default class ProfileCard extends Component {
                 {this.props.data.rollNo}
               </span>
             </div>
-          ) : null}
+          </Collapse>
         </div>
       </div>
     );
