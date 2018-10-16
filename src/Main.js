@@ -21,7 +21,7 @@ export default class extends Component {
     super(props);
     this.state = {
       open: false,
-      openModal : false ,
+      openModal: false
     };
     this.style = {
       menuItem: {
@@ -36,20 +36,19 @@ export default class extends Component {
     };
   }
 
-
   handleToggle = () => this.setState({ open: !this.state.open });
 
   handleClose = () => this.setState({ open: false });
 
   handleClose = () => {
-    this.setState({ openModal : false });
+    this.setState({ openModal: false });
   };
 
   onIconClick = () => {
     this.setState({
-      openModal : true ,
-    })
-  }
+      openModal: true
+    });
+  };
 
   render() {
     const actions = [,];
@@ -65,7 +64,7 @@ export default class extends Component {
                 width: "100%",
                 height: "80%",
                 fontSize: "25px",
-                color : "white",
+                color: "white",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center"
@@ -106,7 +105,11 @@ export default class extends Component {
           </RadioButtonGroup>
 
           <FlatButton
-            style={{ margin: "auto", backgroundColor: "#fff44f " }}
+            style={{
+              margin: "auto",
+              backgroundColor: "#fff44f ",
+              color: "white"
+            }}
             label="Submit"
             primary={true}
             keyboardFocused={true}
