@@ -39,21 +39,6 @@ class Modal extends Component {
     const actions = [,];
     return (
       <div className="modal">
-        <AppBar
-          style={{ backgroundColor: "#fff44f" }}
-          title={<span style={styles.title}>Title</span>}
-          iconElementRight={
-            <img
-              className="userpic"
-              src={a}
-              alt="userpic"
-              width="40"
-              height="40"
-              onClick={this.handleOpen}
-            />
-          }
-        />
-
         <Dialog
           actions={actions}
           modal={false}
