@@ -27,11 +27,11 @@ export default class ProfileCard extends Component {
           <div className="profile-value">
             {" "}
             <span>
-              Name:
+              <div>Name:</div>
               {this.props.data.name}
             </span>
             <span>
-              Id:
+              <div>Id:</div>
               {this.props.data.id}
             </span>
             <span
@@ -42,11 +42,11 @@ export default class ProfileCard extends Component {
               }}
             >
               <span>
-                Class:
+                <div>Class:</div>
                 {this.props.data.standard}
               </span>
               <span>
-                Division:
+                <div>Division:</div>
                 {this.props.data.division}
               </span>
             </span>
@@ -59,29 +59,36 @@ export default class ProfileCard extends Component {
         />
         <div>
           <Collapse isOpened={this.state.expand}>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              className="profile-expandable"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: 20
+              }}
+            >
               <span>
-                Blood:
+                <div>Blood:</div>
                 {this.props.data.bloodGroup}
               </span>
               <span>
-                DOB:
+                <div>DOB:</div>
                 {this.props.data.dateOfBirth}
               </span>
               <span>
-                Gender:
+                <div>Gender:</div>
                 {this.props.data.gender}
               </span>
               <span>
-                School:
+                <div>School:</div>
                 {this.props.data.schoolName}
               </span>
               <span>
-                Admission No:
+                <div>Admission No:</div>
                 {this.props.data.admissionNo}
               </span>
               <span>
-                Roll No:
+                <div>Roll No:</div>
                 {this.props.data.rollNo}
               </span>
             </div>
