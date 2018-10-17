@@ -112,30 +112,32 @@ export class Home extends Component {
                   </h3>
                 </div>
               </Link>
-              <div style={{ color: "white", textAlign: "center" }}>
-                <div
-                  style={{
-                    height: "80px",
-                    width: "80px",
-                    backgroundColor: "#FD0041",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "40px"
-                  }}
-                >
-                  <Icon
-                    style={{ fontSize: "25px" }}
-                    type="book"
-                    theme="outlined"
-                  />
+              <Link to="/diary">
+                <div style={{ color: "white", textAlign: "center" }}>
+                  <div
+                    style={{
+                      height: "80px",
+                      width: "80px",
+                      backgroundColor: "#FD0041",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "40px"
+                    }}
+                  >
+                    <Icon
+                      style={{ fontSize: "25px" }}
+                      type="book"
+                      theme="outlined"
+                    />
+                  </div>
+                  <h3
+                    style={{ color: "white", fontSize: "13px", weight: "25px" }}
+                  >
+                    DIARY
+                  </h3>
                 </div>
-                <h3
-                  style={{ color: "white", fontSize: "13px", weight: "25px" }}
-                >
-                  DIARY
-                </h3>
-              </div>
+              </Link>
               <div style={{ color: "white", textAlign: "center" }}>
                 <div
                   style={{
