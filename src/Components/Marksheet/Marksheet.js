@@ -20,13 +20,18 @@ class Marksheet extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      studentId: localStorage.getItem("active")
     };
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
+    navigator.onLine ? this.getData() : this.getCachedData();
+  }
+
+  getData = () => {
     var data = {
-      studentId: 20570
+      studentId: this.state.studentId
     };
     fetch(baseUrl + "academic/markSheet/", {
       method: "POST",
@@ -41,9 +46,14 @@ class Marksheet extends Component {
       .then(value => {
         console.log(value);
         this.setState({ data: value });
+        localStorage.setItem("marksheet", JSON.stringify(value));
       });
   };
 
+  getCachedData = () => {
+    var data = localStorage.getItem("marksheet");
+    this.setState({ data: JSON.parse(data) });
+  };
   render() {
     {
       this.state.data.map(r => console.log(r));
