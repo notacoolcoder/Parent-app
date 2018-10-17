@@ -15,8 +15,6 @@ export class Provider extends Component {
     this.setState({ data });
   };
   activateStudent = id => {
-    console.log("id--");
-
     this.setData({ id });
   };
 
@@ -27,7 +25,7 @@ export class Provider extends Component {
           value={{
             data: this.state.data,
             setData: this.setData,
-            activateStudent: this.state.activateStudent
+            activateStudent: this.activateStudent
           }}
         >
           {this.props.children}

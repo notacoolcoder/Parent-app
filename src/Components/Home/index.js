@@ -35,7 +35,7 @@ export class Home extends Component {
         console.log(value);
 
         localStorage.setItem("data", JSON.stringify(value));
-        that.props.activateStudent(value.studentList[0].id);
+        this.props.activateStudent(value.studentList[0].id);
       });
   }
 
