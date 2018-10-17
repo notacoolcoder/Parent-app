@@ -16,15 +16,27 @@ export default class extends Component {
     };
   }
   componentDidMount() {
+    this.setState({
+      date: new Date().toString().slice(0, 15)
+    });
+    //this.setState({ data: this.getData() });
+    navigator.onLine ? this.getData() : this.getCachedData();
+  }
+
+  getCachedData = () => {
+    var data = localStorage.getItem("circular");
+    this.setState({ data: JSON.parse(data) });
+  };
+
+  getData = () => {
     var data = {
       phoneNumber: "9544330995",
       offset: 0,
       count: 5,
       schoolId: 9
     };
-    this.setState({
-      date: new Date().toString().slice(0, 15)
-    });
+    console.log("ethiii");
+
     fetch(baseUrl + "circulars/countwise/", {
       method: "POST",
       body: JSON.stringify(data),
@@ -39,8 +51,12 @@ export default class extends Component {
         console.log("------", value);
 
         this.setState({ data: value });
+        localStorage.setItem("circular", JSON.stringify(value));
+      })
+      .catch(err => {
+        console.log("err", err);
       });
-  }
+  };
   render() {
     return (
       <div className="circular-main">

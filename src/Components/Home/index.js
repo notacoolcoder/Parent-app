@@ -18,6 +18,8 @@ export class Home extends Component {
 
     this.props.setData(id);
 
+    var that = this;
+
     fetch(baseUrl + "profile.html?parentId=" + id + "&schoolCode=0009", {
       method: "POST",
       headers: {
@@ -31,7 +33,9 @@ export class Home extends Component {
       })
       .then(value => {
         console.log(value);
+
         localStorage.setItem("data", JSON.stringify(value));
+        that.props.activateStudent(value.studentList[0].id);
       });
   }
 
@@ -457,6 +461,13 @@ export class Home extends Component {
 
 export default props => (
   <Consumer>
-    {({ data, setData }) => <Home {...props} data={data} setData={setData} />}
+    {({ data, setData, activateStudent }) => (
+      <Home
+        {...props}
+        data={data}
+        setData={setData}
+        activateStudent={activateStudent}
+      />
+    )}
   </Consumer>
 );

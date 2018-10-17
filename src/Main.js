@@ -21,7 +21,9 @@ export default class extends Component {
     super(props);
     this.state = {
       open: false,
-      openModal: false
+      openModal: false,
+      studentList: [],
+      active: ""
     };
     this.style = {
       menuItem: {
@@ -34,6 +36,11 @@ export default class extends Component {
         color: "#ffffff"
       }
     };
+  }
+  componentDidMount() {
+    var data = JSON.parse(localStorage.getItem("data"));
+    console.log(data.studentList);
+    this.setState({ studentList: data.studentList });
   }
 
   handleToggle = () => this.setState({ open: !this.state.open });
@@ -82,26 +89,13 @@ export default class extends Component {
           onRequestClose={this.handleClose}
         >
           <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
-            <RadioButton
-              value="light"
-              label="Dhanista Sudhir Katuparampil, 10-F"
-              style={styles.radioButton}
-            />
-            <RadioButton
-              value="not-light"
-              label="Keerthy, 5-A"
-              style={styles.radioButton}
-            />
-            <RadioButton
-              value="not-light1"
-              label="Khyati, 5-A"
-              style={styles.radioButton}
-            />
-            <RadioButton
-              value="not-light2"
-              label="Kiran, 5-A"
-              style={styles.radioButton}
-            />
+            {this.state.studentList.map(item => (
+              <RadioButton
+                value={item.id}
+                label={item.name}
+                style={styles.radioButton}
+              />
+            ))}
           </RadioButtonGroup>
 
           <FlatButton
