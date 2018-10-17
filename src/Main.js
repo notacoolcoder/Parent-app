@@ -65,7 +65,39 @@ export class Main extends Component {
         <AppBar
           style={{ backgroundColor: "rgb(53, 53, 110)" }}
           title="Parent Connect"
-          onLeftIconButtonClick={this.handleToggle}
+          showMenuIconButton={true}
+          iconElementLeft={
+            <div style={{ height : "90%" , margin : "auto" ,display : "flex" , flexDirection : "row" , alignItems : "center" , justifyContent : "center"}}>
+            <Icon style={{
+              width: "100%",
+              height: "80%",
+              fontSize: "30px",
+              color : "white",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+            type="bars"
+            theme="outlined"
+            onClick={this.handleToggle}
+            />
+            <Link to="/home">
+            <Icon
+              style={{
+                width: "100%",
+                height: "80%",
+                fontSize: "25px",
+                color : "white",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+              type="left"
+              theme="outlined"
+            />
+            </Link>
+            </div>
+          }
           iconElementRight={
             <Icon
               style={{
