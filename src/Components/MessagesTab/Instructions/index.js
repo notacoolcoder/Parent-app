@@ -2,17 +2,23 @@ import React, { Component } from "react";
 import "./index.css";
 import DropdownCard from "../../DropdownCard";
 import { baseUrl } from "./../../../Api";
+
 export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      studentId: localStorage.getItem("active")
     };
   }
 
   componentDidMount() {
+    navigator.onLine ? this.getData() : this.getCachedData();
+  }
+
+  getData = () => {
     var data = {
-      studentId: 20570,
+      studentId: this.state.studentId,
       offset: 0,
       count: 5
     };
@@ -28,10 +34,15 @@ export default class extends Component {
       })
       .then(value => {
         console.log(value);
-
+        localStorage.setItem("instructions", JSON.stringify(value));
         this.setState({ data: value });
       });
-  }
+  };
+
+  getCachedData = () => {
+    var data = localStorage.getItem("instructions");
+    this.setState({ data: JSON.parse(data) });
+  };
 
   render() {
     return (
