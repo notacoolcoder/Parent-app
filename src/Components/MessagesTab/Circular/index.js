@@ -30,7 +30,7 @@ export default class extends Component {
 
   getData = () => {
     var data = {
-      phoneNumber: "9544330995",
+      phoneNumber: localStorage.getItem("phone"),
       offset: 0,
       count: 5,
       schoolId: 9

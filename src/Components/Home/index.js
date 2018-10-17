@@ -34,7 +34,8 @@ export class Home extends Component {
           console.log(value);
           var active = value.studentList[0].id;
           localStorage.setItem("data", JSON.stringify(value));
-
+          var phone = value.parent.phoneNo;
+          localStorage.setItem("phone", phone);
           this.props.activateStudent(active);
           localStorage.setItem("active", active);
         });
