@@ -60,6 +60,13 @@ export default class extends Component {
     this.fetchData(this.state.date.toString());
   }
   render() {
+    const {
+      paPortioncovereds,
+      paHomeworks,
+      paInstructions,
+      paClassTests,
+      dailyReportFiles
+    } = this.state.data;
     return (
       <div>
         {this.state.spin ? (
@@ -77,132 +84,152 @@ export default class extends Component {
           <div className="daily-report">
             <DatePicker
               size="small"
-              value={this.state.date}
+              defaultValue={moment(new Date(), "YYYY-MM-DD")}
               onChange={this.onDtaeChange.bind(this)}
               style={{ width: "120px", margin: "4px" }}
             />
             <div className="portiontaken">
               <h3>Protions Taken</h3>
-              {this.state.data.paPortioncovereds.map(q => (
-                <span>
-                  <h4>{q.subject}</h4>
-                  <p>
-                    Date:
-                    {q.date}
-                  </p>
-                  <p>
-                    Chapter:
-                    {q.chapter}
-                  </p>
-                  <p>
-                    PageNo:
-                    {q.pageNo}
-                  </p>
-                  <p>
-                    Description:
-                    {q.description}
-                  </p>
+              {paPortioncovereds == null ? (
+                <div>No data!</div>
+              ) : (
+                paPortioncovereds.map(q => (
+                  <span>
+                    <h4>{q.subject}</h4>
+                    <p>
+                      Date:
+                      {q.date}
+                    </p>
+                    <p>
+                      Chapter:
+                      {q.chapter}
+                    </p>
+                    <p>
+                      PageNo:
+                      {q.pageNo}
+                    </p>
+                    <p>
+                      Description:
+                      {q.description}
+                    </p>
 
-                  <p>
-                    Template:
-                    {q.templateName}
-                  </p>
-                </span>
-              ))}
+                    <p>
+                      Template:
+                      {q.templateName}
+                    </p>
+                  </span>
+                ))
+              )}
             </div>
             <div className="portiontaken">
               <h3>Homework</h3>
-              {this.state.data.paHomeworks.map(q => (
-                <span>
-                  <h4>{q.subject}</h4>
-                  <p>
-                    Date:
-                    {q.date}
-                  </p>
-                  <p>
-                    Chapter:
-                    {q.chapter}
-                  </p>
-                  <p>
-                    PageNo:
-                    {q.pageNo}
-                  </p>
-                  <p>
-                    Description:
-                    {q.description}
-                  </p>
+              {paHomeworks == null ? (
+                <div>No data!</div>
+              ) : (
+                paHomeworks.map(q => (
+                  <span>
+                    <h4>{q.subject}</h4>
+                    <p>
+                      Date:
+                      {q.date}
+                    </p>
+                    <p>
+                      Chapter:
+                      {q.chapter}
+                    </p>
+                    <p>
+                      PageNo:
+                      {q.pageNo}
+                    </p>
+                    <p>
+                      Description:
+                      {q.description}
+                    </p>
 
-                  <p>
-                    Template:
-                    {q.templateName}
-                  </p>
-                </span>
-              ))}
+                    <p>
+                      Template:
+                      {q.templateName}
+                    </p>
+                  </span>
+                ))
+              )}
             </div>
             <div className="portiontaken">
               <h3>Class Test</h3>
-              {this.state.data.paClassTests.map(q => (
-                <span>
-                  <h4>{q.subject}</h4>
-                  <p>
-                    Date:
-                    {q.date}
-                  </p>
-                  <p>
-                    Description:
-                    {q.description}
-                  </p>
-                </span>
-              ))}
+              {paClassTests == null ? (
+                <div>No data!</div>
+              ) : (
+                paClassTests.map(q => (
+                  <span>
+                    <h4>{q.subject}</h4>
+                    <p>
+                      Date:
+                      {q.date}
+                    </p>
+                    <p>
+                      Description:
+                      {q.description}
+                    </p>
+                  </span>
+                ))
+              )}
             </div>
             <div className="portiontaken">
               <h3>Instructions</h3>
-              {this.state.data.paInstructions.map(q => (
-                <span>
-                  <h4>{q.subject}</h4>
-                  <p>
-                    Date:
-                    {q.date}
-                  </p>
+              {paInstructions == null ? (
+                <div>No data!</div>
+              ) : (
+                paInstructions.map(q => (
+                  <span>
+                    <h4>{q.subject}</h4>
+                    <p>
+                      Date:
+                      {q.date}
+                    </p>
 
-                  <p>
-                    Description:
-                    {q.description}
-                  </p>
+                    <p>
+                      Description:
+                      {q.description}
+                    </p>
 
-                  <p>
-                    Template:
-                    {q.templateName}
-                  </p>
-                </span>
-              ))}
+                    <p>
+                      Template:
+                      {q.templateName}
+                    </p>
+                  </span>
+                ))
+              )}
             </div>
             <div className="portiontaken">
               <h3>Files</h3>
-              {this.state.data.dailyReportFiles.map(q => (
-                <span>
-                  <h4>{q.subject}</h4>
-                  <p>
-                    Date:
-                    {q.date}
-                  </p>
-                  <p>
-                    Description:
-                    {q.description}
-                  </p>
+              {dailyReportFiles == null ? (
+                <div>No data!</div>
+              ) : (
+                dailyReportFiles.map(q => (
+                  <span>
+                    <h4>{q.subject}</h4>
+                    <p>
+                      Date:
+                      {q.date}
+                    </p>
+                    <p>
+                      Description:
+                      {q.description}
+                    </p>
 
-                  <p>
-                    File:
-                    <a href={q.fileUrl}>
-                      <Icon
-                        type="file"
-                        theme="outlined"
-                        style={{ fontSize: "20px" }}
-                      />
-                    </a>
-                  </p>
-                </span>
-              ))}
+                    <p>
+                      File:
+                      <a href={q.fileUrl}>
+                        <Icon
+                          type="file"
+                          theme="outlined"
+                          style={{ fontSize: "20px" }}
+                        />
+                      </a>
+                    </p>
+                  </span>
+                ))
+              )}
             </div>
           </div>
         )}
