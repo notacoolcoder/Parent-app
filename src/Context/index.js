@@ -25,7 +25,8 @@ export class Provider extends Component {
           value={{
             data: this.state.data,
             setData: this.setData,
-            activateStudent: this.activateStudent
+            activateStudent: this.activateStudent,
+            id: this.state.id
           }}
         >
           {this.props.children}

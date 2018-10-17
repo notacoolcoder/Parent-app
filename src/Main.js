@@ -6,6 +6,7 @@ import Drawer from "material-ui/Drawer";
 import { RadioButton, RadioButtonGroup } from "material-ui/RadioButton";
 import FlatButton from "material-ui/FlatButton";
 import { Icon } from "antd";
+import { Consumer } from "./Context";
 
 const styles = {
   block: {
@@ -16,7 +17,7 @@ const styles = {
   }
 };
 
-export default class extends Component {
+export class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -166,3 +167,11 @@ export default class extends Component {
     );
   }
 }
+
+export default props => (
+  <Consumer>
+    {({ activateStudent, id }) => (
+      <Main {...props} activateStudent={activateStudent} id={id} />
+    )}
+  </Consumer>
+);

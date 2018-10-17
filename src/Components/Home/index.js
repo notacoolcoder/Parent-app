@@ -33,9 +33,11 @@ export class Home extends Component {
       })
       .then(value => {
         console.log(value);
-
+        var active = value.studentList[0].id;
         localStorage.setItem("data", JSON.stringify(value));
-        this.props.activateStudent(value.studentList[0].id);
+
+        this.props.activateStudent(active);
+        // localStorage.setItem("active", active);
       });
   }
 
