@@ -13,13 +13,16 @@ export default class extends Component {
       pageNo: "121,131",
       Note: "sadsadasdsadas",
       spin: true,
-      requestDate: ""
+      requestDate: "",
+      studentId: localStorage.getItem("active")
     };
   }
   fetchData(date) {
     this.setState({ spin: true });
+    console.log("studentId", this.state.studentId);
+
     var data = {
-      studentId: 20570,
+      studentId: this.state.studentId,
       date: "Mon Jun 11 2018 09:39:48 GMT+0530 (IST)"
     };
     fetch(baseUrl + "dailyreport/dayReport/", {
@@ -30,16 +33,27 @@ export default class extends Component {
       }
     })
       .then(response => {
+        console.log("res", response);
+
         return response.json();
       })
       .then(value => {
+        console.log("val", value);
+
+        localStorage.setItem("dayreport", JSON.stringify(value));
         this.setState({ data: value, spin: false });
       });
   }
   componentDidMount() {
-    console.log(this.state.date.toString());
-    this.fetchData(this.state.date.toString());
+    navigator.onLine
+      ? this.fetchData(this.state.date.toString())
+      : this.getCachedData();
   }
+
+  getCachedData = () => {
+    var data = localStorage.getItem("dayreport");
+    this.setState({ data: JSON.parse(data) });
+  };
   onDtaeChange(date, dateString) {
     console.log(date.toString());
     this.setState({ requestDate: date.toString() });

@@ -56,13 +56,10 @@ export class Main extends Component {
   handleToggle = () => this.setState({ open: !this.state.open });
 
   handleClose = () => {
-    this.setState({ open: false });
-    localStorage.setItem("active", this.state.active);
-    this.props.activateStudent(this.state.active);
-  };
-
-  handleClose = () => {
     this.setState({ openModal: false });
+    localStorage.setItem("active", "" + this.state.active);
+
+    this.props.activateStudent(this.state.active);
   };
 
   onIconClick = () => {
@@ -73,6 +70,7 @@ export class Main extends Component {
 
   onStudentChange = e => {
     this.setState({ active: e.target.value });
+    console.log("sel", e.target.value);
   };
 
   render() {
