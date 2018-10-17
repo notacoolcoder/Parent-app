@@ -13,17 +13,18 @@ export default class extends Component {
       pageNo: "121,131",
       Note: "sadsadasdsadas",
       spin: true,
-      requestDate: "",
+      requestDate: new Date().toString(),
       studentId: localStorage.getItem("active")
     };
   }
   fetchData(date) {
     this.setState({ spin: true });
     console.log("studentId", this.state.studentId);
+    console.log("sel date", this.state.requestDate);
 
     var data = {
       studentId: this.state.studentId,
-      date: "Mon Jun 11 2018 09:39:48 GMT+0530 (IST)"
+      date: this.state.requestDate
     };
     fetch(baseUrl + "dailyreport/dayReport/", {
       method: "POST",
@@ -45,19 +46,16 @@ export default class extends Component {
       });
   }
   componentDidMount() {
-    navigator.onLine
-      ? this.fetchData(this.state.date.toString())
-      : this.getCachedData();
+    navigator.onLine ? this.fetchData() : this.getCachedData();
   }
 
   getCachedData = () => {
     var data = localStorage.getItem("dayreport");
-    this.setState({ data: JSON.parse(data) });
+    this.setState({ data: JSON.parse(data), spin: false });
   };
   onDtaeChange(date, dateString) {
     console.log(date.toString());
-    this.setState({ requestDate: date.toString() });
-    this.fetchData(this.state.date.toString());
+    this.setState({ requestDate: date.toString() }, this.fetchData);
   }
   render() {
     const {
@@ -69,6 +67,14 @@ export default class extends Component {
     } = this.state.data;
     return (
       <div>
+        <div className="daily-report">
+          <DatePicker
+            size="small"
+            defaultValue={moment(new Date(), "YYYY-MM-DD")}
+            onChange={this.onDtaeChange.bind(this)}
+            style={{ width: "120px", margin: "4px" }}
+          />
+        </div>
         {this.state.spin ? (
           <div
             style={{
@@ -82,12 +88,6 @@ export default class extends Component {
           </div>
         ) : (
           <div className="daily-report">
-            <DatePicker
-              size="small"
-              defaultValue={moment(new Date(), "YYYY-MM-DD")}
-              onChange={this.onDtaeChange.bind(this)}
-              style={{ width: "120px", margin: "4px" }}
-            />
             <div className="portiontaken">
               <h3>Protions Taken</h3>
               {paPortioncovereds == null ? (
