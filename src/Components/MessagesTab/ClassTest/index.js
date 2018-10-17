@@ -11,6 +11,15 @@ export default class extends Component {
   }
 
   componentDidMount() {
+
+    navigator.onLine ? this.getData() : this.getCachedData();
+}
+  getCachedData = () => {
+    var data = localStorage.getItem("classtest");
+    this.setState({ data: JSON.parse(data) });
+  };
+
+  getData = () => {
     var data = {
       studentId: 20570,
       offset: 0,
@@ -28,8 +37,13 @@ export default class extends Component {
       })
       .then(value => {
         this.setState({ data: value });
+        localStorage.setItem("classtest", JSON.stringify(value));
+
+      })
+      .catch(err => {
+        console.log("err", err);
       });
-  }
+  };
 
   render() {
     return (
