@@ -57,6 +57,8 @@ export class Main extends Component {
 
   handleClose = () => {
     this.setState({ openModal: false });
+    console.log("current", this.state.active);
+
     localStorage.setItem("active", "" + this.state.active);
 
     this.props.activateStudent(this.state.active);

@@ -16,29 +16,29 @@ export class Home extends Component {
     const id = this.props.match.params.id;
     console.log("id", id);
 
-    this.props.setData(id);
+    if (id != "home") {
+      this.props.setData(id);
 
-    var that = this;
+      var that = this;
 
-    fetch(baseUrl + "profile.html?parentId=" + id + "&schoolCode=0009", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(respose => {
-        console.log("response", respose);
-
-        return respose.json();
+      fetch(baseUrl + "profile.html?parentId=" + id + "&schoolCode=0009", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        }
       })
-      .then(value => {
-        console.log(value);
-        var active = value.studentList[0].id;
-        localStorage.setItem("data", JSON.stringify(value));
+        .then(respose => {
+          return respose.json();
+        })
+        .then(value => {
+          console.log(value);
+          var active = value.studentList[0].id;
+          localStorage.setItem("data", JSON.stringify(value));
 
-        this.props.activateStudent(active);
-        localStorage.setItem("active", active);
-      });
+          this.props.activateStudent(active);
+          localStorage.setItem("active", active);
+        });
+    }
   }
 
   render() {
