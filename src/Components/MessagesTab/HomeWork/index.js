@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import DropdownCard from "../../DropdownCard";
 import { Dropdown } from "antd";
 import { baseUrl } from "./../../../Api";
-
+import { Spin } from "antd";
+import "./index.css";
 export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
       homework: [],
-      studentId: localStorage.getItem("active")
+      studentId: localStorage.getItem("active"),
+      spin: true
     };
   }
   componentDidMount() {
@@ -37,16 +39,22 @@ export default class extends Component {
         return response.json();
       })
       .then(value => {
-        this.setState({ homework: value });
+        this.setState({ homework: value, spin: false });
         localStorage.setItem("homework", JSON.stringify(value));
       });
   };
   render() {
     return (
-      <div>
-        {this.state.homework.map(e => (
-          <DropdownCard date={e.date} data={e.homeworkList} />
-        ))}
+      <div className="message-homework">
+        {this.state.spin ? (
+          <Spin />
+        ) : (
+          <div>
+            {this.state.homework.map(e => (
+              <DropdownCard date={e.date} data={e.homeworkList} />
+            ))}
+          </div>
+        )}
       </div>
     );
   }

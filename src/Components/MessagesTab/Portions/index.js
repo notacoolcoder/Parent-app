@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import DropdownCard from "../../DropdownCard";
 import { baseUrl } from "./../../../Api";
-
+import { Spin } from "antd";
 export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-
+      spin: true,
       studentId: localStorage.getItem("active")
     };
   }
@@ -31,7 +31,7 @@ export default class extends Component {
         return response.json();
       })
       .then(value => {
-        this.setState({ data: value });
+        this.setState({ data: value, spin: false });
         localStorage.setItem("portions", JSON.stringify(value));
       });
   };
@@ -43,10 +43,16 @@ export default class extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.data.map(e => (
-          <DropdownCard date={e.date} data={e.portionCoveredList} />
-        ))}
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        {this.state.spin ? (
+          <Spin />
+        ) : (
+          <div>
+            {this.state.data.map(e => (
+              <DropdownCard date={e.date} data={e.portionCoveredList} />
+            ))}
+          </div>
+        )}
       </div>
     );
   }

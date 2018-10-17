@@ -7,8 +7,7 @@ export default class ExpandableCard extends Component {
     super(props);
     this.state = {
       messageContent: "",
-      icon: false,
-      class: "common-card message-card"
+      collapse: false
     };
   }
 
@@ -19,36 +18,22 @@ export default class ExpandableCard extends Component {
   }
   changeIcon() {
     this.setState({
-      icon: true,
-      class: "common-card message-content"
+      collapse: !this.state.collapse
     });
   }
-  changeIconClose() {
-    this.setState({
-      icon: false,
-      class: "common-card message-card"
-    });
-  }
+
   render() {
     return (
       <div className="common-container">
         <div className={this.state.class}>
           <p>{this.state.messageContent}</p>
-          {this.state.icon ? (
-            <Icon
-              type="up"
-              theme="outlined"
-              style={{ margin: 10, display: "flex", alignItems: "flex-end" }}
-              onClick={this.changeIconClose.bind(this)}
-            />
-          ) : (
-            <Icon
-              type="down"
-              theme="outlined"
-              style={{ margin: 10 }}
-              onClick={this.changeIcon.bind(this)}
-            />
-          )}
+
+          <Icon
+            type={this.state.collapse ? "up" : "down"}
+            theme="outlined"
+            style={{ margin: 10, display: "flex", alignItems: "flex-end" }}
+            onClick={this.changeIconClose.bind(this)}
+          />
         </div>
       </div>
     );

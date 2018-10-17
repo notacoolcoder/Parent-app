@@ -9,9 +9,7 @@ export default class extends Component {
     this.state = {
       data: [],
       date: moment(new Date(), "YYYY-MM-DD"),
-      chapter: "21,22",
-      pageNo: "121,131",
-      Note: "sadsadasdsadas",
+
       spin: true,
       requestDate: new Date().toString(),
       studentId: localStorage.getItem("active")

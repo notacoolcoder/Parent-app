@@ -1,18 +1,6 @@
 import React, { Component } from "react";
 import "./Marksheet.css";
-import AppBar from "material-ui/AppBar";
-import { Tabs, Tab } from "material-ui/Tabs";
-import Slider from "material-ui/Slider";
-import c from "./05.jpg";
-import { Step, Stepper, StepButton, StepContent } from "material-ui/Stepper";
-import {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn
-} from "material-ui/Table";
+import { Spin } from "antd";
 import MarksheetCard from "../MarksheetCard";
 import { baseUrl } from "./../../Api";
 
@@ -20,7 +8,8 @@ class Marksheet extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      data: {},
+      spin: true,
       studentId: localStorage.getItem("active")
     };
   }
@@ -45,7 +34,7 @@ class Marksheet extends Component {
       })
       .then(value => {
         console.log(value);
-        this.setState({ data: value });
+        this.setState({ data: value, spin: false });
         localStorage.setItem("marksheet", JSON.stringify(value));
       });
   };
@@ -55,14 +44,20 @@ class Marksheet extends Component {
     this.setState({ data: JSON.parse(data) });
   };
   render() {
-    {
-      this.state.data.map(r => console.log(r));
-    }
     return (
-      <div className="marksheet">
-        {this.state.data.map(r => (
-          <MarksheetCard data={r} key={r.id} />
-        ))}
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        {this.state.spin ? (
+          <Spin />
+        ) : (
+          <div className="marksheet">
+            {this.state.data.map(r => (
+              <span>
+                <MarksheetCard data={r} key={r.id} />
+                <hr />
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     );
   }

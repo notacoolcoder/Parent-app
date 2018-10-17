@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import "./index.css";
+import { Spin } from "antd";
 import DropdownCard from "../../DropdownCard";
 import { baseUrl } from "./../../../Api";
 export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      spin: true
     };
   }
 
   componentDidMount() {
-
     navigator.onLine ? this.getData() : this.getCachedData();
-}
+  }
   getCachedData = () => {
     var data = localStorage.getItem("classtest");
     this.setState({ data: JSON.parse(data) });
@@ -36,9 +37,8 @@ export default class extends Component {
         return response.json();
       })
       .then(value => {
-        this.setState({ data: value });
+        this.setState({ data: value, spin: false });
         localStorage.setItem("classtest", JSON.stringify(value));
-
       })
       .catch(err => {
         console.log("err", err);
@@ -47,10 +47,16 @@ export default class extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.data.map(e => (
-          <DropdownCard date={e.date} test={true} data={e.classTestList} />
-        ))}
+      <div className="class-test">
+        {this.state.spin ? (
+          <Spin />
+        ) : (
+          <div>
+            {this.state.data.map(e => (
+              <DropdownCard date={e.date} test={true} data={e.classTestList} />
+            ))}
+          </div>
+        )}
       </div>
     );
   }
