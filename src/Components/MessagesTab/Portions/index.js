@@ -6,12 +6,17 @@ export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+
+      studentId: localStorage.getItem("active")
     };
   }
   componentDidMount() {
+    navigator.onLine ? this.getData() : this.getCachedData();
+  }
+  getData = () => {
     var data = {
-      studentId: 20570,
+      studentId: this.state.studentId,
       offset: 0,
       count: 5
     };
@@ -27,8 +32,14 @@ export default class extends Component {
       })
       .then(value => {
         this.setState({ data: value });
+        localStorage.setItem("portions", JSON.stringify(value));
       });
-  }
+  };
+
+  getCachedData = () => {
+    var data = localStorage.getItem("portions");
+    this.setState({ data: JSON.parse(data) });
+  };
 
   render() {
     return (
