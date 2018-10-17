@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import AppBar from "material-ui/AppBar";
 import Dialog from "material-ui/Dialog";
 import Drawer from "material-ui/Drawer";
-import { RadioButton, RadioButtonGroup } from "material-ui/RadioButton";
 import FlatButton from "material-ui/FlatButton";
-import { Icon } from "antd";
+import { Icon, Radio } from "antd";
 import { Consumer } from "./Context";
+
+const RadioGroup = Radio.Group;
 
 const styles = {
   block: {
@@ -15,6 +16,12 @@ const styles = {
   radioButton: {
     marginBottom: 16
   }
+};
+
+const radioStyle = {
+  display: "block",
+  height: "30px",
+  lineHeight: "30px"
 };
 
 export class Main extends Component {
@@ -39,14 +46,20 @@ export class Main extends Component {
     };
   }
   componentDidMount() {
+    var active = localStorage.getItem("active");
+
     var data = JSON.parse(localStorage.getItem("data"));
-    console.log(data.studentList);
-    this.setState({ studentList: data.studentList });
+
+    this.setState({ studentList: data.studentList, active });
   }
 
   handleToggle = () => this.setState({ open: !this.state.open });
 
-  handleClose = () => this.setState({ open: false });
+  handleClose = () => {
+    this.setState({ open: false });
+    localStorage.setItem("active", this.state.active);
+    this.props.activateStudent(this.state.active);
+  };
 
   handleClose = () => {
     this.setState({ openModal: false });
@@ -58,6 +71,10 @@ export class Main extends Component {
     });
   };
 
+  onStudentChange = e => {
+    this.setState({ active: e.target.value });
+  };
+
   render() {
     const actions = [,];
     return (
@@ -67,35 +84,45 @@ export class Main extends Component {
           title="Parent Connect"
           showMenuIconButton={true}
           iconElementLeft={
-            <div style={{ height : "90%" , margin : "auto" ,display : "flex" , flexDirection : "row" , alignItems : "center" , justifyContent : "center"}}>
-            <Icon style={{
-              width: "100%",
-              height: "80%",
-              fontSize: "30px",
-              color : "white",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-            type="bars"
-            theme="outlined"
-            onClick={this.handleToggle}
-            />
-            <Link to="/home">
-            <Icon
+            <div
               style={{
-                width: "100%",
-                height: "80%",
-                fontSize: "25px",
-                color : "white",
+                height: "90%",
+                margin: "auto",
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center"
               }}
-              type="left"
-              theme="outlined"
-            />
-            </Link>
+            >
+              <Icon
+                style={{
+                  width: "100%",
+                  height: "80%",
+                  fontSize: "30px",
+                  color: "white",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+                type="bars"
+                theme="outlined"
+                onClick={this.handleToggle}
+              />
+              <Link to="/home">
+                <Icon
+                  style={{
+                    width: "100%",
+                    height: "80%",
+                    fontSize: "25px",
+                    color: "white",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}
+                  type="left"
+                  theme="outlined"
+                />
+              </Link>
             </div>
           }
           iconElementRight={
@@ -121,15 +148,17 @@ export class Main extends Component {
           open={this.state.openModal}
           onRequestClose={this.handleClose}
         >
-          <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
+          <RadioGroup
+            style={{ margin: "auto" }}
+            value={this.state.active}
+            onChange={this.onStudentChange}
+          >
             {this.state.studentList.map(item => (
-              <RadioButton
-                value={item.id}
-                label={item.name}
-                style={styles.radioButton}
-              />
+              <Radio style={radioStyle} value={"" + item.id}>
+                {item.name}
+              </Radio>
             ))}
-          </RadioButtonGroup>
+          </RadioGroup>
 
           <FlatButton
             style={{
@@ -202,8 +231,8 @@ export class Main extends Component {
 
 export default props => (
   <Consumer>
-    {({ activateStudent, id }) => (
-      <Main {...props} activateStudent={activateStudent} id={id} />
+    {({ activateStudent, id, data }) => (
+      <Main {...props} activateStudent={activateStudent} id={id} data={data} />
     )}
   </Consumer>
 );

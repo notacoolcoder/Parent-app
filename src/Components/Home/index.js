@@ -37,7 +37,7 @@ export class Home extends Component {
         localStorage.setItem("data", JSON.stringify(value));
 
         this.props.activateStudent(active);
-        // localStorage.setItem("active", active);
+        localStorage.setItem("active", active);
       });
   }
 

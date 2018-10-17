@@ -15,7 +15,7 @@ export class Provider extends Component {
     this.setState({ data });
   };
   activateStudent = id => {
-    this.setData({ id });
+    this.setState({ id });
   };
 
   render() {
