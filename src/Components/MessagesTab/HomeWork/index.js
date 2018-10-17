@@ -7,12 +7,22 @@ export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      homework: []
+      homework: [],
+      studentId: localStorage.getItem("active")
     };
   }
   componentDidMount() {
+    navigator.onLine ? this.getData() : this.getCachedData();
+  }
+
+  getCachedData = () => {
+    var data = localStorage.getItem("homework");
+    this.setState({ homework: JSON.parse(data) });
+  };
+
+  getData = () => {
     var data = {
-      studentId: 20570,
+      studentId: this.state.studentId,
       offset: 0,
       count: 5
     };
@@ -28,8 +38,9 @@ export default class extends Component {
       })
       .then(value => {
         this.setState({ homework: value });
+        localStorage.setItem("homework", JSON.stringify(value));
       });
-  }
+  };
   render() {
     return (
       <div>
