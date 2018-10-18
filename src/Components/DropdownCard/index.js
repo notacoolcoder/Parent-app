@@ -32,7 +32,7 @@ export default class extends Component {
         <div className="messages-content">
           <h4>{this.props.date}</h4>
           <Icon
-            type={this.state.collapse ? "down " : "up"}
+            type={this.state.collapse ? "up " : "down"}
             onClick={this.onIconClick}
             style={{ display: "flex" }}
           />
@@ -93,6 +93,7 @@ export default class extends Component {
             </div>
           </Collapse>
         </div>
+        <hr />
       </div>
     );
   }

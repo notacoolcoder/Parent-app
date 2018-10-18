@@ -7,13 +7,17 @@ export default class extends Component {
     super(props);
     this.state = {
       data: [],
+      studentId: localStorage.getItem("active"),
+      phone: localStorage.getItem("phone"),
       spin: true
     };
   }
   componentDidMount() {
+    console.log(this.state.phone, localStorage.getItem("phone"));
+
     var data = {
-      studentId: 20570,
-      phoneNumber: "9544330995"
+      studentId: this.state.studentId,
+      phoneNumber: this.state.phone
     };
     fetch(baseUrl + "dailyreport/diary/", {
       method: "POST",
@@ -54,7 +58,7 @@ export default class extends Component {
             </div>
             <div className="day-report">
               <h4>Portions Taken</h4>
-              {this.state.data.dailyReport.paPortioncovereds == null ? (
+              {this.state.data.dailyReport == null ? (
                 <div>No data</div>
               ) : (
                 <div>
@@ -84,7 +88,7 @@ export default class extends Component {
             </div>
             <div className="homework-diary">
               <h4>Homework</h4>
-              {this.state.data.dailyReport.paHomeworks == null ? (
+              {this.state.data.dailyReport == null ? (
                 <div>No data </div>
               ) : (
                 <div>
@@ -118,7 +122,7 @@ export default class extends Component {
             </div>
             <div className="test-diary">
               <h4>Test</h4>
-              {this.state.data.dailyReport.paClassTests == null ? (
+              {this.state.data.dailyReport == null ? (
                 <div>No data</div>
               ) : (
                 <div>
@@ -156,7 +160,7 @@ export default class extends Component {
             </div>
             <div className="instruction-diary">
               <h4>Instruction</h4>
-              {this.state.data.dailyReport.paInstructions == null ? (
+              {this.state.data.dailyReport == null ? (
                 <div>No data</div>
               ) : (
                 <div>
@@ -183,7 +187,7 @@ export default class extends Component {
             </div>
             <div className="files-diary">
               <h4>Files</h4>
-              {this.state.data.dailyReport.dailyReportFiles == null ? (
+              {this.state.data.dailyReport == null ? (
                 <div>No data</div>
               ) : (
                 <div>

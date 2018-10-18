@@ -118,6 +118,7 @@ export default class extends Component {
                   </span>
                 ))
               )}
+              <hr />
             </div>
             <div className="portiontaken">
               <h3>Homework</h3>
@@ -151,6 +152,7 @@ export default class extends Component {
                   </span>
                 ))
               )}
+              <hr />
             </div>
             <div className="portiontaken">
               <h3>Class Test</h3>
@@ -171,6 +173,7 @@ export default class extends Component {
                   </span>
                 ))
               )}
+              <hr />
             </div>
             <div className="portiontaken">
               <h3>Instructions</h3>
@@ -197,6 +200,7 @@ export default class extends Component {
                   </span>
                 ))
               )}
+              <hr />
             </div>
             <div className="portiontaken">
               <h3>Files</h3>
@@ -231,6 +235,7 @@ export default class extends Component {
             </div>
           </div>
         )}
+        <hr />
       </div>
     );
   }

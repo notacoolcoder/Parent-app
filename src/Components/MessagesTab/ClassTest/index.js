@@ -8,7 +8,8 @@ export default class extends Component {
     super(props);
     this.state = {
       data: [],
-      spin: true
+      spin: true,
+      studentId: localStorage.getItem("active")
     };
   }
 
@@ -22,7 +23,7 @@ export default class extends Component {
 
   getData = () => {
     var data = {
-      studentId: 20570,
+      studentId: this.state.studentId,
       offset: 0,
       count: 5
     };
@@ -53,7 +54,13 @@ export default class extends Component {
         ) : (
           <div>
             {this.state.data.map(e => (
-              <DropdownCard date={e.date} test={true} data={e.classTestList} />
+              <div>
+                <DropdownCard
+                  date={e.date}
+                  test={true}
+                  data={e.classTestList}
+                />
+              </div>
             ))}
           </div>
         )}

@@ -10,13 +10,14 @@ export default class extends Component {
     this.state = {
       data: [],
       visible: "none",
-      display: true
+      display: true,
+      studentId: localStorage.getItem("avtive")
     };
   }
 
   componentDidMount() {
     var data = {
-      studentId: 20570
+      studentId: this.state.studentId
     };
     fetch(baseUrl + "academic/examTimetable/", {
       method: "POST",
