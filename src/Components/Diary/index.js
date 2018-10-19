@@ -6,7 +6,9 @@ export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      data: {
+        dailyReport: []
+      },
       studentId: localStorage.getItem("active"),
       phone: localStorage.getItem("phone"),
       spin: true
@@ -39,6 +41,13 @@ export default class extends Component {
       });
   }
   render() {
+    const {
+      paPortioncovereds,
+      paHomeworks,
+      paInstructions,
+      paClassTests,
+      dailyReportFiles
+    } = this.state.data.dailyReport;
     return (
       <div className="diary">
         {this.state.spin ? (
@@ -62,8 +71,10 @@ export default class extends Component {
                 <div>No data</div>
               ) : (
                 <div>
-                  {this.state.data.dailyReport.paPortioncovereds.map(
-                    (portion, index) => (
+                  {paPortioncovereds == null ? (
+                    <div>No data!</div>
+                  ) : (
+                    paPortioncovereds.map((portion, index) => (
                       <div className="daily-report-dairy">
                         <span>
                           {index}.{portion.subject}
@@ -81,136 +92,122 @@ export default class extends Component {
                           {portion.pageNo}
                         </span>
                       </div>
-                    )
+                    ))
                   )}
                 </div>
               )}
             </div>
             <div className="homework-diary">
               <h4>Homework</h4>
-              {this.state.data.dailyReport == null ? (
-                <div>No data </div>
+              {paHomeworks == null ? (
+                <div>No data!</div>
               ) : (
-                <div>
-                  {this.state.data.dailyReport.paHomeworks.map(
-                    (homework, index) => (
-                      <div className="homework-dairy-get">
-                        <span>
-                          {index}.{homework.subject}
-                        </span>
-                        <span>
-                          Template:
-                          {homework.templateName}
-                        </span>
-                        <span>
-                          Description:
-                          {homework.description}
-                        </span>
-                        <span>
-                          Chapter:
-                          {homework.chapters}
-                        </span>
-                        <span>
-                          pageNo:
-                          {homework.pageNo}
-                        </span>
-                      </div>
-                    )
-                  )}
-                </div>
+                paHomeworks.map((homework, index) => (
+                  <div className="homework-dairy-get">
+                    <span>
+                      {index}.{homework.subject}
+                    </span>
+                    <span>
+                      Template:
+                      {homework.templateName}
+                    </span>
+                    <span>
+                      Description:
+                      {homework.description}
+                    </span>
+                    <span>
+                      Chapter:
+                      {homework.chapters}
+                    </span>
+                    <span>
+                      pageNo:
+                      {homework.pageNo}
+                    </span>
+                  </div>
+                ))
               )}
             </div>
             <div className="test-diary">
               <h4>Test</h4>
-              {this.state.data.dailyReport == null ? (
-                <div>No data</div>
+              {paClassTests == null ? (
+                <div>No data!</div>
               ) : (
                 <div>
-                  {this.state.data.dailyReport.paClassTests.map(
-                    (test, index) => (
-                      <div className="test-dairy-get">
-                        <span>
-                          {index}.{test.subject}
-                        </span>
-                        <span>
-                          Template:
-                          {test.templateName}
-                        </span>
-                        <span>
-                          Description:
-                          {test.description}
-                        </span>
-                        <span>
-                          Chapter:
-                          {test.chapters}
-                        </span>
-                        <span>
-                          pageNo:
-                          {test.pageNo}
-                        </span>
-                        <span>
-                          assignedDate:
-                          {test.assignedDate}
-                        </span>
-                      </div>
-                    )
-                  )}
+                  {paClassTests.map((test, index) => (
+                    <div className="test-dairy-get">
+                      <span>
+                        {index}.{test.subject}
+                      </span>
+                      <span>
+                        Template:
+                        {test.templateName}
+                      </span>
+                      <span>
+                        Description:
+                        {test.description}
+                      </span>
+                      <span>
+                        Chapter:
+                        {test.chapters}
+                      </span>
+                      <span>
+                        pageNo:
+                        {test.pageNo}
+                      </span>
+                      <span>
+                        assignedDate:
+                        {test.assignedDate}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
             <div className="instruction-diary">
               <h4>Instruction</h4>
-              {this.state.data.dailyReport == null ? (
+              {paInstructions == null ? (
                 <div>No data</div>
               ) : (
-                <div>
-                  {this.state.data.dailyReport.paInstructions.map(
-                    (instruction, index) => (
-                      <div className="instruction-dairy-get">
-                        <span>{instruction.date}</span>
-                        <span>
-                          {index}.{instruction.subject}
-                        </span>
-                        <span>
-                          Template:
-                          {instruction.templateName}
-                        </span>
-                        <span>
-                          Description:
-                          {instruction.description}
-                        </span>
-                      </div>
-                    )
-                  )}
-                </div>
+                paInstructions.map((instruction, index) => (
+                  <div className="instruction-dairy-get">
+                    <span>{instruction.date}</span>
+                    <span>
+                      {index}.{instruction.subject}
+                    </span>
+                    <span>
+                      Template:
+                      {instruction.templateName}
+                    </span>
+                    <span>
+                      Description:
+                      {instruction.description}
+                    </span>
+                  </div>
+                ))
               )}
             </div>
             <div className="files-diary">
               <h4>Files</h4>
-              {this.state.data.dailyReport == null ? (
+              {dailyReportFiles == null ? (
                 <div>No data</div>
               ) : (
-                <div>
-                  {this.state.data.dailyReport.dailyReportFiles.map(
-                    (file, index) => (
-                      <div className="files-dairy-get">
-                        <span>{file.date}</span>
-                        <span>
-                          {index}.{file.subject}
-                        </span>
-                        <span>
-                          Description:
-                          {file.description}
-                        </span>
-                        <span>
-                          <a href={file.fileUrl}>
-                            <Icon type="file" theme="outlined" />
-                          </a>
-                        </span>
-                      </div>
-                    )
-                  )}
-                </div>
+                dailyReportFiles.map((file, index) => (
+                  <div className="files-dairy-get">
+                    <span>{file.date}</span>
+                    <span>
+                      {index}.{file.subject}
+                    </span>
+                    <span>
+                      Description:
+                      {file.description}
+                    </span>
+                    <span>
+                      <a href={file.fileUrl}>
+                        <Icon type="file" theme="outlined" />
+                      </a>
+                    </span>
+                  </div>
+                ))
               )}
             </div>
           </div>
