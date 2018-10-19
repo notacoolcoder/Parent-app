@@ -7,6 +7,7 @@ export default class extends Component {
     super(props);
     this.state = {
       data: {
+        circularList: [],
         dailyReport: []
       },
       studentId: localStorage.getItem("active"),
@@ -48,59 +49,83 @@ export default class extends Component {
       paClassTests,
       dailyReportFiles
     } = this.state.data.dailyReport;
+    const circularList = this.state.data.circularList;
     return (
-      <div className="diary">
+      <div className="diary" style={{ marginTop: 10 }}>
         {this.state.spin ? (
           <Spin />
         ) : (
           <div>
             <div className="diary-circular">
               <h4>Circular</h4>
-              {this.state.data.circularList.map((list, index) => (
-                <div className="message-card-diary">
-                  <span>
-                    {index}.{list.date}
-                  </span>
-                  <span>{list.message}</span>
+
+              {circularList.length == 0 ? (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    margin: 10
+                  }}
+                >
+                  No data!
                 </div>
-              ))}
+              ) : (
+                circularList.map((list, index) => (
+                  <div className="message-card-diary">
+                    <span>
+                      {index}.{list.date}
+                    </span>
+                    <span>{list.message}</span>
+                  </div>
+                ))
+              )}
             </div>
             <div className="day-report">
               <h4>Portions Taken</h4>
-              {this.state.data.dailyReport == null ? (
-                <div>No data</div>
-              ) : (
-                <div>
-                  {paPortioncovereds == null ? (
-                    <div>No data!</div>
-                  ) : (
-                    paPortioncovereds.map((portion, index) => (
-                      <div className="daily-report-dairy">
-                        <span>
-                          {index}.{portion.subject}
-                        </span>
-                        <span>
-                          Template:
-                          {portion.templateName}
-                        </span>
-                        <span>
-                          Description:
-                          {portion.description}
-                        </span>
-                        <span>
-                          pageNo:
-                          {portion.pageNo}
-                        </span>
-                      </div>
-                    ))
-                  )}
+              {paPortioncovereds == null ? (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    margin: 10
+                  }}
+                >
+                  No data!
                 </div>
+              ) : (
+                paPortioncovereds.map((portion, index) => (
+                  <div className="daily-report-dairy">
+                    <span>
+                      {index}.{portion.subject}
+                    </span>
+                    <span>
+                      Template:
+                      {portion.templateName}
+                    </span>
+                    <span>
+                      Description:
+                      {portion.description}
+                    </span>
+                    <span>
+                      pageNo:
+                      {portion.pageNo}
+                    </span>
+                  </div>
+                ))
               )}
             </div>
             <div className="homework-diary">
               <h4>Homework</h4>
               {paHomeworks == null ? (
-                <div>No data!</div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    margin: 10
+                  }}
+                >
+                  No data!
+                </div>
               ) : (
                 paHomeworks.map((homework, index) => (
                   <div className="homework-dairy-get">
@@ -130,7 +155,15 @@ export default class extends Component {
             <div className="test-diary">
               <h4>Test</h4>
               {paClassTests == null ? (
-                <div>No data!</div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    margin: 10
+                  }}
+                >
+                  No data!
+                </div>
               ) : (
                 <div>
                   {paClassTests.map((test, index) => (
@@ -166,7 +199,15 @@ export default class extends Component {
             <div className="instruction-diary">
               <h4>Instruction</h4>
               {paInstructions == null ? (
-                <div>No data</div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    margin: 10
+                  }}
+                >
+                  No data
+                </div>
               ) : (
                 paInstructions.map((instruction, index) => (
                   <div className="instruction-dairy-get">
@@ -189,7 +230,15 @@ export default class extends Component {
             <div className="files-diary">
               <h4>Files</h4>
               {dailyReportFiles == null ? (
-                <div>No data</div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    margin: 10
+                  }}
+                >
+                  No data
+                </div>
               ) : (
                 dailyReportFiles.map((file, index) => (
                   <div className="files-dairy-get">
