@@ -366,30 +366,32 @@ export class Home extends Component {
                 alignItems: "center"
               }}
             >
-              <div style={{ color: "white", textAlign: "center" }}>
-                <div
-                  style={{
-                    height: "80px",
-                    width: "80px",
-                    backgroundColor: "#9F00C5",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "40px"
-                  }}
-                >
-                  <Icon
-                    style={{ fontSize: "25px" }}
-                    type="picture"
-                    theme="outlined"
-                  />
+              <Link to="/gallery">
+                <div style={{ color: "white", textAlign: "center" }}>
+                  <div
+                    style={{
+                      height: "80px",
+                      width: "80px",
+                      backgroundColor: "#9F00C5",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "40px"
+                    }}
+                  >
+                    <Icon
+                      style={{ fontSize: "25px" }}
+                      type="picture"
+                      theme="outlined"
+                    />
+                  </div>
+                  <h3
+                    style={{ color: "white", fontSize: "13px", weight: "25px" }}
+                  >
+                    GALLERY
+                  </h3>
                 </div>
-                <h3
-                  style={{ color: "white", fontSize: "13px", weight: "25px" }}
-                >
-                  GALLERY
-                </h3>
-              </div>
+              </Link>
               <div style={{ color: "white", textAlign: "center" }}>
                 <div
                   style={{

@@ -1,0 +1,16 @@
+.gallery-main {
+  width: 95%;
+  max-width: 360px;
+  margin: auto;
+}
+.gallery-card {
+  margin: 2px;
+  width: 80px;
+  height: 80px;
+  background-color: yellow;
+}
+.gallery-images {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

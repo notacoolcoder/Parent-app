@@ -17,6 +17,7 @@ import Library from "./Components/Library/Library";
 import Marksheet from "./Components/Marksheet/Marksheet";
 import Main from "./Main";
 import { Provider } from "./Context";
+import Gallery from "./Components/Gallery";
 import BusRoutesIndex from "./Components/BusRoutes/BusRouteIndex";
 export default class App extends Component {
   render() {
@@ -45,8 +46,8 @@ export default class App extends Component {
                     path="/studentreport"
                     component={StudentReport}
                   />
+                  <Route exact path="/gallery" component={Gallery} />
                   <Route exact path="/busroutes" component={BusRoutesIndex} />
-
                   <Route exact path="/timetable" component={Timetable} />
                   <Route exact path="/profile" component={Profile} />
                   <Route exact path="/:id" component={Home} />
