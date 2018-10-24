@@ -1,37 +1,10 @@
 import React, { Component } from "react";
 import "./index.css";
-import { Calendar, Badge } from "antd";
-
-function getListData(value) {
-  let listData;
-  switch (value.date()) {
-    case 8:
-      listData = [{ type: "warning", content: "This is warning event." }];
-      break;
-    case 10:
-      listData = [{ type: "warning" }];
-      break;
-    case 15:
-      listData = [{ type: "warning" }];
-      break;
-    default:
-  }
-  return listData || [];
-}
-
-function dateCellRender(value) {
-  const listData = getListData(value);
-  return (
-    <ul className="events">
-      {listData.map(item => (
-        <li key={item.content}>
-          <Badge status="success" />
-        </li>
-      ))}
-    </ul>
-  );
-}
-
+import Calendar from "react-calendar";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import BigCalendar from "react-big-calendar";
+import moment from "moment";
+var localizer = BigCalendar.momentLocalizer(moment);
 export default class extends Component {
   constructor(props) {
     super(props);
@@ -40,13 +13,24 @@ export default class extends Component {
   componentDidMount() {}
 
   render() {
+    const dummyEvents = [
+      {
+        allDay: false,
+        end: new Date("October 25, 2018"),
+        start: new Date("October 25, 2018"),
+        title: "hi"
+      }
+    ];
+
     return (
-      <div className="common-container">
-        <div
-          style={{ width: 300, border: "1px solid #d9d9d9", borderRadius: 4 }}
-        >
-          <Calendar fullscreen={false} dateCellRender={dateCellRender} />
-        </div>
+      <div className="calendar">
+        <BigCalendar
+          localizer={localizer}
+          events={dummyEvents}
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: "100%" }}
+        />
       </div>
     );
   }
