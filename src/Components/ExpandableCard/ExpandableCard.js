@@ -32,7 +32,7 @@ export default class ExpandableCard extends Component {
             type={this.state.collapse ? "up" : "down"}
             theme="outlined"
             style={{ margin: 10, display: "flex", alignItems: "flex-end" }}
-            onClick={this.changeIconClose.bind(this)}
+            onClick={this.changeIcon.bind(this)}
           />
         </div>
       </div>

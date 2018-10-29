@@ -15,6 +15,7 @@ export default class extends Component {
       studentId: localStorage.getItem("active")
     };
   }
+
   fetchData(date) {
     this.setState({ spin: true });
     console.log("studentId", this.state.studentId);
@@ -44,6 +45,9 @@ export default class extends Component {
       });
   }
   componentDidMount() {
+    window.addEventListener("storage", e => {
+      console.log("ee--", e);
+    });
     navigator.onLine ? this.fetchData() : this.getCachedData();
   }
 

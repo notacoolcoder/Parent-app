@@ -12,7 +12,8 @@ export default class extends Component {
       absentDays: 5,
       startValue: null,
       endValue: null,
-      endOpen: false
+      endOpen: false,
+      studentId: localStorage.getItem("active")
     };
   }
 
