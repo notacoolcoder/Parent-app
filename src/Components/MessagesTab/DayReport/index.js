@@ -46,7 +46,7 @@ export default class extends Component {
   }
   componentDidMount() {
     window.addEventListener("storage", e => {
-      console.log("ee--", e);
+      this.setState({ studentId: localStorage.getItem("active") });
     });
     navigator.onLine ? this.fetchData() : this.getCachedData();
   }
