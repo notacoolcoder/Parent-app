@@ -14,6 +14,11 @@
 .diary-circular h4 {
   margin: auto;
 }
+.underline {
+  height: 1px;
+  color: green;
+  width: 50%;
+}
 .message-card-diary {
   display: flex;
   padding: 10px;

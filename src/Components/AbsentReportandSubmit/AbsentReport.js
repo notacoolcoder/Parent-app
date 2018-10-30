@@ -12,13 +12,15 @@ export default class extends Component {
       workingDays: 96,
       absentDays: 5,
       leave: [],
-      currentDate: new Date()
+      currentDate: new Date(),
+
+      studentId: localStorage.getItem("active")
     };
   }
 
   componentDidMount() {
     var data = {
-      studentId: 20570
+      studentId: this.state.studentId
     };
     fetch(baseUrl + "academic/absentReport/", {
       method: "POST",

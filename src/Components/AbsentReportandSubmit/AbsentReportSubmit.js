@@ -9,20 +9,24 @@ export default class extends Component {
     super(props);
     this.state = {
       workingDays: 96,
+      studentId: localStorage.getItem("active"),
       absentDays: 5,
       startValue: null,
       endValue: null,
       endOpen: false,
-      studentId: localStorage.getItem("active")
+      studentId: localStorage.getItem("active"),
+      reason: ""
     };
   }
 
-  componentDidMount() {
+  submitLeave() {
+    console.log("hugu");
+
     var data = {
-      studentId: 20570,
-      startDate: "Wed Jul 4 2018 12:39:48 GMT+0530 (IST)",
-      endDate: "Fri Jul 6 2018 12:39:48 GMT+0530 (IST)",
-      reason: "fever"
+      studentId: this.state.studentId,
+      startDate: this.state.startValue.toString(),
+      endDate: this.state.endValue.toString(),
+      reason: this.state.reason
     };
     fetch(baseUrl + "academic/applyLeave", {
       method: "POST",
@@ -35,8 +39,11 @@ export default class extends Component {
         return response.json();
       })
       .then(value => {
-        console.log(value);
-        this.setState({ leave: value });
+        console.log("ab", value);
+
+        if (value != null) {
+          alert("absent marked");
+        }
       });
   }
 
@@ -64,14 +71,15 @@ export default class extends Component {
 
   onStartChange = value => {
     this.onChange("startValue", value);
-    console.log(value);
   };
 
   onEndChange = value => {
-    console.log(value);
     this.onChange("endValue", value);
   };
-
+  onReasonChange = e => {
+    this.setState({ reason: e.target.value });
+    this.onChange("reason", e.target.value);
+  };
   handleStartOpenChange = open => {
     if (!open) {
       this.setState({ endOpen: true });
@@ -129,9 +137,15 @@ export default class extends Component {
           <textarea
             className="reason-for-leave"
             placeholder="Reason for leave..."
+            onChange={this.onReasonChange}
           />
           <div className="submit-button-container">
-            <button className="submit-button">SUBMIT</button>
+            <button
+              className="submit-button"
+              onClick={this.submitLeave.bind(this)}
+            >
+              SUBMIT
+            </button>
           </div>
         </div>
       </div>

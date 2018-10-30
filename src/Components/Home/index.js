@@ -175,7 +175,7 @@ export class Home extends Component {
                 alignItems: "center"
               }}
             >
-              <Link to="/calendar">
+              {/* <Link to="/calendar">
                 <div style={{ color: "white", textAlign: "center" }}>
                   <div
                     style={{
@@ -200,7 +200,7 @@ export class Home extends Component {
                     CALENDER
                   </h3>
                 </div>
-              </Link>
+              </Link> */}
               <Link to="/profile">
                 <div style={{ color: "white", textAlign: "center" }}>
                   <div
@@ -211,8 +211,7 @@ export class Home extends Component {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      borderRadius: "40px",
-                      marginLeft: "18px"
+                      borderRadius: "40px"
                     }}
                   >
                     <Icon
@@ -224,11 +223,11 @@ export class Home extends Component {
                   <h3
                     style={{ color: "white", fontSize: "13px", weight: "25px" }}
                   >
-                    STUDENT PROFILE
+                    STUDENTS
                   </h3>
                 </div>
               </Link>
-              <Link to="/marksheet">
+              {/* <Link to="/marksheet">
                 <div style={{ color: "white", textAlign: "center" }}>
                   <div
                     style={{
@@ -253,119 +252,7 @@ export class Home extends Component {
                     ACADEMICS
                   </h3>
                 </div>
-              </Link>
-            </div>
-          </div>
-          <div
-            style={{
-              height: "45vh",
-              width: "100%",
-              maxWidth: "360px",
-              backgroundColor: "#2B2082",
-              display: "flex",
-              justifyContent: "space-around",
-              flexDirection: "column"
-            }}
-          >
-            <div
-              style={{
-                height: "27.5vh",
-                width: "inherit",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-around",
-                alignItems: "center"
-              }}
-            >
-              <Link to="/fee">
-                <div style={{ color: "white", textAlign: "center" }}>
-                  <div
-                    style={{
-                      height: "80px",
-                      width: "80px",
-                      backgroundColor: "#266FC5",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "40px"
-                    }}
-                  >
-                    <Icon
-                      style={{ fontSize: "25px" }}
-                      type="wallet"
-                      theme="outlined"
-                    />
-                  </div>
-                  <h3
-                    style={{ color: "white", fontSize: "13px", weight: "25px" }}
-                  >
-                    FEES
-                  </h3>
-                </div>
-              </Link>
-              <Link to="/absentreport">
-                <div style={{ color: "white", textAlign: "center" }}>
-                  <div
-                    style={{
-                      height: "80px",
-                      width: "80px",
-                      backgroundColor: "#FD0041",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "40px"
-                    }}
-                  >
-                    <Icon
-                      style={{ fontSize: "25px" }}
-                      type="fork"
-                      theme="outlined"
-                    />
-                  </div>
-                  <h3
-                    style={{ color: "white", fontSize: "13px", weight: "25px" }}
-                  >
-                    LEAVES
-                  </h3>
-                </div>
-              </Link>
-              <Link to="/library">
-                <div style={{ color: "white", textAlign: "center" }}>
-                  <div
-                    style={{
-                      height: "80px",
-                      width: "80px",
-                      backgroundColor: "#E6B000",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "40px"
-                    }}
-                  >
-                    <Icon
-                      style={{ fontSize: "25px" }}
-                      type="hdd"
-                      theme="outlined"
-                    />
-                  </div>
-                  <h3
-                    style={{ color: "white", fontSize: "13px", weight: "25px" }}
-                  >
-                    LIBRARY
-                  </h3>
-                </div>
-              </Link>
-            </div>
-            <div
-              style={{
-                height: "27.5vh",
-                width: "inherit",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-around",
-                alignItems: "center"
-              }}
-            >
+              </Link> */}
               <Link to="/gallery">
                 <div style={{ color: "white", textAlign: "center" }}>
                   <div
@@ -392,30 +279,145 @@ export class Home extends Component {
                   </h3>
                 </div>
               </Link>
-              <div style={{ color: "white", textAlign: "center" }}>
-                <div
-                  style={{
-                    height: "80px",
-                    width: "80px",
-                    backgroundColor: "#00A557",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: "40px"
-                  }}
-                >
-                  <Icon
-                    style={{ fontSize: "25px" }}
-                    type="table"
-                    theme="outlined"
-                  />
+              <Link to="/fee">
+                <div style={{ color: "white", textAlign: "center" }}>
+                  <div
+                    style={{
+                      height: "80px",
+                      width: "80px",
+                      backgroundColor: "#266FC5",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "40px"
+                    }}
+                  >
+                    <Icon
+                      style={{ fontSize: "25px" }}
+                      type="wallet"
+                      theme="outlined"
+                    />
+                  </div>
+                  <h3
+                    style={{ color: "white", fontSize: "13px", weight: "25px" }}
+                  >
+                    FEES
+                  </h3>
                 </div>
-                <h3
-                  style={{ color: "white", fontSize: "13px", weight: "25px" }}
-                >
-                  TIME TABLE
-                </h3>
-              </div>
+              </Link>
+            </div>
+          </div>
+          <div
+            style={{
+              height: "45vh",
+              width: "100%",
+              maxWidth: "360px",
+              backgroundColor: "#2B2082",
+              display: "flex",
+              justifyContent: "space-around",
+              flexDirection: "column"
+            }}
+          >
+            <div
+              style={{
+                height: "27.5vh",
+                width: "inherit",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-around",
+                alignItems: "center"
+              }}
+            >
+              <Link to="/absentreport">
+                <div style={{ color: "white", textAlign: "center" }}>
+                  <div
+                    style={{
+                      height: "80px",
+                      width: "80px",
+                      backgroundColor: "#FD0041",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "40px"
+                    }}
+                  >
+                    <Icon
+                      style={{ fontSize: "25px" }}
+                      type="fork"
+                      theme="outlined"
+                    />
+                  </div>
+                  <h3
+                    style={{ color: "white", fontSize: "13px", weight: "25px" }}
+                  >
+                    LEAVES
+                  </h3>
+                </div>
+              </Link>
+              {/* <Link to="/library">
+                <div style={{ color: "white", textAlign: "center" }}>
+                  <div
+                    style={{
+                      height: "80px",
+                      width: "80px",
+                      backgroundColor: "#E6B000",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "40px"
+                    }}
+                  >
+                    <Icon
+                      style={{ fontSize: "25px" }}
+                      type="hdd"
+                      theme="outlined"
+                    />
+                  </div>
+                  <h3
+                    style={{ color: "white", fontSize: "13px", weight: "25px" }}
+                  >
+                    LIBRARY
+                  </h3>
+                </div>
+              </Link> */}
+            </div>
+            <div
+              style={{
+                height: "27.5vh",
+                width: "inherit",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-around",
+                alignItems: "center"
+              }}
+            >
+              {/* <Link to="/timetable">
+                <div style={{ color: "white", textAlign: "center" }}>
+                  <div
+                    style={{
+                      height: "80px",
+                      width: "80px",
+                      backgroundColor: "#00A557",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "40px"
+                    }}
+                  >
+                    <Icon
+                      style={{ fontSize: "25px" }}
+                      type="table"
+                      theme="outlined"
+                    />
+                  </div>
+                  <h3
+                    style={{ color: "white", fontSize: "13px", weight: "25px" }}
+                  >
+                    TIME TABLE
+                  </h3>
+                </div>
+              </Link> */}
+
               <div style={{ color: "white", textAlign: "center" }}>
                 <div
                   style={{
