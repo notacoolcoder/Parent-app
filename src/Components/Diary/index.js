@@ -20,8 +20,17 @@ export default class extends Component {
     console.log(this.state.phone, localStorage.getItem("phone"));
     window.addEventListener("storage", e => {
       this.setState({ studentId: localStorage.getItem("active") });
+      this.getData();
     });
 
+    navigator.onLine ? this.getData() : this.getCachedData();
+  }
+
+  getCachedData = () => {
+    var data = localStorage.getItem("diary");
+    this.setState({ data: JSON.parse(data) });
+  };
+  getData = () => {
     var data = {
       studentId: this.state.studentId,
       phoneNumber: this.state.phone
@@ -38,14 +47,14 @@ export default class extends Component {
       })
       .then(value => {
         console.log("------", value);
+        localStorage.setItem("diary", value);
 
         this.setState({ data: value, spin: false });
       })
       .catch(err => {
         console.log("err", err);
       });
-  }
-
+  };
   onNext = () => {
     console.log("333", this.state.today);
     var date = new Date();

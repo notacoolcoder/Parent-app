@@ -15,6 +15,10 @@ class Marksheet extends Component {
   }
 
   componentDidMount() {
+    window.addEventListener("storage", e => {
+      this.setState({ studentId: localStorage.getItem("active") });
+      this.getData();
+    });
     navigator.onLine ? this.getData() : this.getCachedData();
   }
 
