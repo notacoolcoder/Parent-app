@@ -33,11 +33,13 @@ export class Home extends Component {
         .then(value => {
           console.log(value);
           var active = value.studentList[0].id;
+          const school  = value.studentList[0].schoolId
           localStorage.setItem("data", JSON.stringify(value));
           var phone = value.parent.phoneNo;
           localStorage.setItem("phone", phone);
           this.props.activateStudent(active);
           localStorage.setItem("active", active);
+          localStorage.setItem("schoolID",school );
         });
     }
   }
