@@ -18,6 +18,9 @@ export default class extends Component {
   }
   componentDidMount() {
     console.log(this.state.phone, localStorage.getItem("phone"));
+    window.addEventListener("storage", e => {
+      this.setState({ studentId: localStorage.getItem("active") });
+    });
 
     var data = {
       studentId: this.state.studentId,
