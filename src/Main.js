@@ -51,6 +51,9 @@ export class Main extends Component {
     var data = JSON.parse(localStorage.getItem("data"));
 
     this.setState({ studentList: data.studentList, active });
+    window.addEventListener("storage", () => {
+      console.log("Changed!!");
+    });
   }
 
   handleToggle = () => this.setState({ open: !this.state.open });
@@ -60,6 +63,7 @@ export class Main extends Component {
     console.log("current", this.state.active);
 
     localStorage.setItem("active", "" + this.state.active);
+    window.dispatchEvent(new Event("storage"));
 
     this.props.activateStudent(this.state.active);
   };

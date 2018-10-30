@@ -30,7 +30,7 @@ export default class extends Component {
       phoneNumber: localStorage.getItem("phone"),
       offset: 0,
       count: 5,
-      schoolId: 9
+      schoolId: localStorage.getItem("schoolID")
     };
     console.log("ethiii");
 
