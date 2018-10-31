@@ -15,31 +15,35 @@ export class Home extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     console.log("id", id);
+    const schoolCode = this.props.match.params.sc;
 
     if (id != "home") {
       this.props.setData(id);
 
       var that = this;
 
-      fetch(baseUrl + "profile.html?parentId=" + id + "&schoolCode=0009", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
+      fetch(
+        baseUrl + "profile.html?parentId=" + id + "&schoolCode=0" + schoolCode,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          }
         }
-      })
+      )
         .then(respose => {
           return respose.json();
         })
         .then(value => {
           console.log(value);
           var active = value.studentList[0].id;
-          const school  = value.studentList[0].schoolId
+          const school = value.studentList[0].schoolId;
           localStorage.setItem("data", JSON.stringify(value));
           var phone = value.parent.phoneNo;
           localStorage.setItem("phone", phone);
           this.props.activateStudent(active);
           localStorage.setItem("active", active);
-          localStorage.setItem("schoolID",school );
+          localStorage.setItem("schoolID", schoolCode);
         });
     }
   }

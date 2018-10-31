@@ -50,7 +50,7 @@ export default class App extends Component {
                   <Route exact path="/busroutes" component={BusRoutesIndex} />
                   <Route exact path="/timetable" component={Timetable} />
                   <Route exact path="/profile" component={Profile} />
-                  <Route exact path="/:id" component={Home} />
+                  <Route exact path="/:id/:sc" component={Home} />
                 </Switch>
               </Main>
             </Switch>
