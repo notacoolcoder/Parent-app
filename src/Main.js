@@ -112,7 +112,7 @@ export class Main extends Component {
                 theme="outlined"
                 onClick={this.handleToggle}
               />
-              <Link to="/home">
+              <Link to="/home/abc">
                 <Icon
                   style={{
                     width: "100%",

@@ -23,7 +23,7 @@ export class Home extends Component {
       var that = this;
 
       fetch(
-        baseUrl + "profile.html?parentId=" + id + "&schoolCode=0" + schoolCode,
+        baseUrl + "profile.html?parentId=" + id + "&schoolCode=" + schoolCode,
         {
           method: "POST",
           headers: {
