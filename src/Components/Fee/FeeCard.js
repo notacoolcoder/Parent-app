@@ -60,12 +60,11 @@ export default class FeeCard extends Component {
                 {status}
               </h5>
             </div>
-            <div style={{ width: "30%" }}>
+            <div style={{ width: "30%", display: "flex" }}>
               {this.state.Paid ? (
-                <div>
+                <div style={{ width: "100%" }}>
                   {this.state.pay ? (
                     <div
-                      onClick={this.onVisible}
                       style={{
                         cursor: "pointer",
                         width: "100%",
