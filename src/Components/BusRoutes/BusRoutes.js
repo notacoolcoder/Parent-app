@@ -13,7 +13,7 @@ export default class BusRoutes extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div style={{ height: "auto" }}>
           <div className="bus-route">
             <div className="route-id-circle">
               Route
