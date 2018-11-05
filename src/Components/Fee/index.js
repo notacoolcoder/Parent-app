@@ -7,11 +7,16 @@ export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      studentId: localStorage.getItem("active")
     };
   }
 
   componentDidMount() {
+    window.addEventListener("storage", e => {
+      this.setState({ studentId: localStorage.getItem("active") });
+      this.getData();
+    });
     this.getData();
   }
 
@@ -21,7 +26,9 @@ export default class extends Component {
 
     fetch(
       anotherBaseUrl +
-        "loadFeePaymentStatusDetailsByStudent.html?studentId=771561&date=" +
+        "loadFeePaymentStatusDetailsByStudent.html?studentId=" +
+        this.state.studentId +
+        "&date=" +
         (date.getMonth() + 1) +
         "/" +
         date.getDate() +

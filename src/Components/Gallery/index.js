@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import GalleryCard from "./GalleryCard";
+import { galleryAPI } from "./../../Api";
+import Block from "./GalleryBlock";
+import { parseString } from "xml2js";
+
 class Gallery extends Component {
   constructor(props) {
     super(props);
@@ -17,15 +21,49 @@ class Gallery extends Component {
           date: "23/34/23",
           gallery: [21, 22, 23, 24]
         }
-      ]
+      ],
+      schoolCode: localStorage.getItem("schoolID"),
+      gallery: []
     };
+  }
+  componentDidMount() {
+    var that = this;
+    const schoolCode = this.state.schoolCode;
+    fetch(galleryAPI + schoolCode + "/")
+      .then(respose => {
+        console.log("res", respose);
+
+        return respose.text();
+      })
+
+      .then(value => {
+        parseString(value, { explicitArray: false }, (err, result) => {
+          //console.log("Res", result.ListBucketResult.Contents);
+          result.ListBucketResult.Contents.map(item => {
+            console.log("item", item);
+          });
+          that.setState({ gallery: result.ListBucketResult.Contents });
+        });
+      });
   }
   render() {
     return (
-      <div style={{ padding: "5px" }}>
-        {this.state.data.map(s => (
-          <GalleryCard date={s.date} gallery={s.gallery} />
+      <div
+        style={{
+          padding: "5px",
+          display: "flex",
+          flexWrap: "wrap",
+          margin: "auto",
+          justifyContent: "center"
+        }}
+      >
+        {this.state.gallery.map(item => (
+          <Block url={item.Key} />
         ))}
+
+        {/* {this.state.data.map(s => (
+          <GalleryCard date={s.date} gallery={s.gallery} />
+        ))} */}
       </div>
     );
   }
