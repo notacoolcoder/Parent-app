@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import "./AbsentReport.css";
-import { DatePicker } from "antd";
+import { DatePicker, message } from "antd";
 import moment from "moment";
 import { baseUrl } from "./../../Api";
+import { Redirect } from "react-router-dom";
+
+message.config({ top: 100 });
 
 export default class extends Component {
   constructor(props) {
@@ -15,36 +18,43 @@ export default class extends Component {
       endValue: null,
       endOpen: false,
       studentId: localStorage.getItem("active"),
-      reason: ""
+      reason: "",
+      red: false
     };
   }
 
   submitLeave() {
+    var that = this;
     console.log("hugu");
-
-    var data = {
-      studentId: this.state.studentId,
-      startDate: this.state.startValue.toString(),
-      endDate: this.state.endValue.toString(),
-      reason: this.state.reason
-    };
-    fetch(baseUrl + "academic/applyLeave", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(value => {
-        console.log("ab", value);
-
-        if (value != null) {
-          alert("absent marked");
+    const { studentId, startValue, endValue, reason } = this.state;
+    if (startValue == null || endValue == null || reason == "") {
+      message.error("Please enter all the details!");
+    } else {
+      var data = {
+        studentId: this.state.studentId,
+        startDate: this.state.startValue.toString(),
+        endDate: this.state.endValue.toString(),
+        reason: this.state.reason
+      };
+      fetch(baseUrl + "academic/applyLeave", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
         }
-      });
+      })
+        .then(response => {
+          return response.json();
+        })
+        .then(value => {
+          console.log("ab", value);
+          message.success("Leave has been marked");
+          that.setState({ red: true });
+        })
+        .catch(er => {
+          message.error("Error");
+        });
+    }
   }
 
   disabledStartDate = startValue => {
@@ -138,6 +148,7 @@ export default class extends Component {
             </button>
           </div>
         </div>
+        {this.state.red ? <Redirect to="/absentreport" /> : null}
       </div>
     );
   }

@@ -4,6 +4,9 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 import { baseUrl } from "./../../Api";
+import { message } from "antd";
+
+message.config({ top: 100 });
 
 export default class extends Component {
   constructor(props) {
@@ -19,6 +22,10 @@ export default class extends Component {
   }
 
   componentDidMount() {
+    this.getData();
+  }
+
+  getData = () => {
     var data = {
       studentId: this.state.studentId
     };
@@ -35,6 +42,27 @@ export default class extends Component {
       .then(value => {
         console.log(value);
         this.setState({ leave: value });
+      });
+  };
+
+  onLeaveCancel(id) {
+    var that = this;
+    var data = {
+      studentLeaveId: id
+    };
+    fetch(baseUrl + "academic/cancelLeave", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(value => {
+        message.success("Leave has been canceled");
+        that.getData();
       });
   }
 
@@ -94,7 +122,12 @@ export default class extends Component {
                     </span>
                   </h1>
                 </div>
-                <button className="cancel">Cancel</button>
+                <button
+                  className="cancel"
+                  onClick={this.onLeaveCancel.bind(this, leave.studentLeaveId)}
+                >
+                  Cancel
+                </button>
               </div>
             );
           })}
