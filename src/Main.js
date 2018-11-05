@@ -206,7 +206,7 @@ export class Main extends Component {
             </div>
           </Link>
 
-          <div style={this.style.menuItem} onClick={this.handleClose}>
+          {/* <div style={this.style.menuItem} onClick={this.handleClose}>
             <Icon
               style={{ width: "30%" }}
               type="notification"
@@ -225,7 +225,7 @@ export class Main extends Component {
           <div style={this.style.menuItem} onClick={this.handleClose}>
             <Icon style={{ width: "30%" }} type="poweroff" theme="outlined" />
             <div style={{ width: "70%" }}>Log Out</div>
-          </div>
+          </div> */}
         </Drawer>
         {this.props.children}
       </div>
