@@ -59,7 +59,7 @@ export class Main extends Component {
   handleToggle = () => this.setState({ open: !this.state.open });
 
   handleClose = () => {
-    this.setState({ openModal: false });
+    this.setState({ open: false });
     console.log("current", this.state.active);
 
     localStorage.setItem("active", "" + this.state.active);
@@ -187,7 +187,7 @@ export class Main extends Component {
           open={this.state.open}
           onRequestChange={open => this.setState({ open })}
         >
-          <Link to="/home">
+          <Link to="/home/abc">
             <div style={this.style.menuItem} onClick={this.handleClose}>
               <Icon style={{ width: "30%" }} type="appstore" theme="outlined" />
               <div style={{ width: "70%" }}>Menu</div>
