@@ -43,11 +43,11 @@ export default class extends Component {
       <div className="absent-report-main-container">
         <div className="send-leave-container">
           <h1 className="total-absent">
-            Total Absent{" "}
-            <span className="absent-days">
+            Absent Report{" "}
+            {/* <span className="absent-days">
               &nbsp;
               {this.state.absentDays}/{this.state.workingDays}
-            </span>
+            </span> */}
           </h1>
           <Link to="/absentreportsubmit">
             <button className="send-leave">Send Leave</button>

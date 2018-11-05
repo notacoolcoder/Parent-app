@@ -15,9 +15,9 @@ export class Home extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     console.log("id", id);
-    const schoolCode = this.props.match.params.sc;
 
     if (id != "home") {
+      const schoolCode = this.props.match.params.sc;
       this.props.setData(id);
 
       var that = this;

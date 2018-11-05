@@ -94,16 +94,6 @@ export default class extends Component {
     const { startValue, endValue, endOpen } = this.state;
     return (
       <div className="absent-report-main-container grey-color-bg">
-        <div className="send-leave-container">
-          <h1 className="total-absent">
-            Total Absent{" "}
-            <span className="absent-days">
-              &nbsp;
-              {this.state.absentDays}/{this.state.workingDays}
-            </span>
-          </h1>
-          <button className="send-leave">Send Leave</button>
-        </div>
         <div className="submit-leave-container">
           <div className="date-picker-container">
             <div className="date-picker-one-container">
@@ -112,7 +102,7 @@ export default class extends Component {
                 className="date-picker date-picker-start"
                 disabledDate={this.disabledStartDate}
                 size="small"
-                format="YYYY-MM-DD"
+                format="DD-MM-YYYY"
                 value={startValue}
                 placeholder="Current date"
                 onChange={this.onStartChange}
@@ -125,7 +115,7 @@ export default class extends Component {
                 size="small"
                 className="date-picker date-picker-end"
                 disabledDate={this.disabledEndDate}
-                format="YYYY-MM-DD"
+                format="DD-MM-YYYY"
                 value={endValue}
                 placeholder="End date"
                 onChange={this.onEndChange}

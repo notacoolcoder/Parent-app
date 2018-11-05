@@ -8,7 +8,7 @@ export default class extends Component {
     super(props);
     this.state = {
       data: [],
-      date: moment(new Date(), "YYYY-MM-DD"),
+      date: moment(new Date(), "DD-MM-YYYY"),
 
       spin: true,
       requestDate: new Date().toString(),
@@ -72,7 +72,7 @@ export default class extends Component {
         <div className="daily-report">
           <DatePicker
             size="small"
-            defaultValue={moment(new Date(), "YYYY-MM-DD")}
+            defaultValue={moment(new Date(), "DD-MM-YYYY")}
             onChange={this.onDtaeChange.bind(this)}
             style={{ width: "120px", margin: "4px" }}
           />
