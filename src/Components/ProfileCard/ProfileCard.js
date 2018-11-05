@@ -30,10 +30,10 @@ export default class ProfileCard extends Component {
               <div>Name:</div>
               {this.props.data.name}
             </span>
-            <span>
+            {/* <span>
               <div>Id:</div>
               {this.props.data.id}
-            </span>
+            </span> */}
             <span
               style={{
                 display: "flex",
