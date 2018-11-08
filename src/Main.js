@@ -59,7 +59,7 @@ export class Main extends Component {
   handleToggle = () => this.setState({ open: !this.state.open });
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({ openModal: false });
     console.log("current", this.state.active);
 
     localStorage.setItem("active", "" + this.state.active);

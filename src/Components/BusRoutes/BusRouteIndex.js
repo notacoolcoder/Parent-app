@@ -7,12 +7,31 @@ export default class BusRouteIndex extends Component {
     super(props);
     this.state = {
       route: [],
-      routeId: "033039",
+      routeId: "",
       collapse: false,
-      spin: true
+      spin: true,
+      studentId: localStorage.getItem("active")
     };
   }
   componentDidMount() {
+    this.getData();
+    window.addEventListener("storage", e => {
+      this.setState({ studentId: localStorage.getItem("active") });
+      this.getData();
+    });
+  }
+
+  getData = () => {
+    const wholeData = JSON.parse(localStorage.getItem("data"));
+    const data = wholeData.studentList.find(
+      item => item.id == this.state.studentId
+    );
+    console.log("data", data);
+    const routeId = data.busRouteCode + data.busRouteId;
+    this.setState({ routeId }, this.getLocations);
+  };
+
+  getLocations = () => {
     var that = this;
     db.ref(this.state.routeId).on("value", function(data) {
       data.forEach(r => {
@@ -21,7 +40,7 @@ export default class BusRouteIndex extends Component {
       });
       that.setState({ spin: false });
     });
-  }
+  };
   render() {
     return (
       <div style={{ margin: "auto", display: "flex", flexDirection: "column" }}>
