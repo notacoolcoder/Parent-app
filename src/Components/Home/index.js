@@ -56,7 +56,7 @@ export class Home extends Component {
           style={{
             height: "45vh",
             width: "100%",
-            maxWidth: "360px",
+            maxWidth: "400px",
             color: "white",
             display: "flex",
             flexDirection: "column",
@@ -70,12 +70,12 @@ export class Home extends Component {
             {this.state.token}
           </div>
         </div>
-        <Carousel>
+        <Carousel style={{ width: "100%" }}>
           <div
             style={{
               height: "45vh",
               width: "100%",
-              maxWidth: "360px",
+              maxWidth: "400px",
               backgroundColor: "#2B2082",
               display: "flex",
               justifyContent: "space-around",
@@ -317,7 +317,7 @@ export class Home extends Component {
             style={{
               height: "45vh",
               width: "100%",
-              maxWidth: "360px",
+              maxWidth: "400px",
               backgroundColor: "#2B2082",
               display: "flex",
               justifyContent: "space-around",
@@ -461,7 +461,7 @@ export class Home extends Component {
           style={{
             height: "10vh",
             width: "100%",
-            maxWidth: "360px",
+            maxWidth: "400px",
             display: "flex",
             justifyContent: "center",
             backgroundColor: "#1F1670",
