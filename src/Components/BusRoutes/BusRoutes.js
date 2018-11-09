@@ -9,6 +9,10 @@ export default class BusRoutes extends Component {
     super(props);
     this.state = {};
   }
+  componentDidMount(){
+    console.log(this.props.data);
+    
+  }
 
   render() {
     return (
