@@ -8,6 +8,7 @@ export default class extends Component {
     super(props);
     this.state = {
       data: [],
+      amountData: [],
       studentId: localStorage.getItem("active")
     };
   }
@@ -21,6 +22,11 @@ export default class extends Component {
   }
 
   getData = () => {
+    this.statusDetails();
+    this.amountDetails();
+  };
+
+  statusDetails = () => {
     var that = this;
     var date = new Date();
 
@@ -42,6 +48,35 @@ export default class extends Component {
       })
       .then(value => {
         console.log("------", value);
+        that.setState({ data: value });
+      })
+      .catch(err => {
+        console.log("err", err);
+      });
+  };
+
+  amountDetails = () => {
+    var that = this;
+    var date = new Date();
+
+    fetch(
+      anotherBaseUrl +
+        "loadFeePaymentAmountDetailsByStudent.html?studentId=" +
+        this.state.studentId +
+        "&date=" +
+        (date.getMonth() + 1) +
+        "/" +
+        date.getDate() +
+        "/" +
+        date.getFullYear()
+    )
+      .then(response => {
+        console.log("res", response);
+
+        return response.json();
+      })
+      .then(value => {
+        console.log("++++++", value);
         that.setState({ data: value });
       })
       .catch(err => {

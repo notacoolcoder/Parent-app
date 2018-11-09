@@ -194,9 +194,7 @@ export default class extends Component {
                 ) : (
                   circularList.map((list, index) => (
                     <div className="message-card-diary">
-                      <span>
-                        {index}.{list.date}
-                      </span>
+                      <span>{list.date}</span>
                       <span>{list.message}</span>
                     </div>
                   ))

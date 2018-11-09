@@ -40,10 +40,11 @@ export default class FeeCard extends Component {
 
     const { status, name, paid, paidDate } = this.props;
     return (
-      <div className="common-continer">
+      <div className="FeeContainer">
         <div
           className="common-card"
           style={{ padding: "0.1px", display: "flex", flexDirection: "column" }}
+          onClick={this.onVisible}
         >
           <div style={{ width: "100%", height: "auto", display: "flex" }}>
             <div style={{ width: "70%" }}>
