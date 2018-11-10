@@ -30,7 +30,7 @@ export default class extends Component {
     var data = {
       studentId: this.state.studentId,
       offset: 0,
-      count: 5
+      count: 10
     };
     fetch(baseUrl + "dailyreport/homeWork/countwise/", {
       method: "POST",
