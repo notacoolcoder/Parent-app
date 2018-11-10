@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import BusRoute from "./BusRoutes";
 import { Icon, Spin } from "antd";
+import MapWork from './MapWork';
 import { db } from "../../Utils/config";
 export default class BusRouteIndex extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export default class BusRouteIndex extends Component {
       route: [],
       routeId: "",
       collapse: false,
-      spin: true,
+      spin:true,
       studentId: localStorage.getItem("active")
     };
   }
@@ -33,24 +34,27 @@ export default class BusRouteIndex extends Component {
 
   getLocations = () => {
     var that = this;
+    console.log(this.state.routeId);
     db.ref(this.state.routeId).on("value", function(data) {
       data.forEach(r => {
         that.state.route.push(r.val());
-        console.log(r.val());
       });
       that.setState({ spin: false });
     });
   };
   render() {
     return (
-      <div style={{ margin: "auto", display: "flex", flexDirection: "column" }}>
+      <div style={{width:"360px", margin: "auto", display: "flex", flexDirection: "column" }}>
         {this.state.spin ? (
           <Spin />
         ) : (
           <div>
-            {this.state.route.map((g, index) => (
-              <BusRoute index={index} lat={g.lat} long={g.lon} />
-            ))}
+             <MapWork  style={{width:300,height:300}}
+              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7GkW3KZMvbakRdzKeDbV-61l1-6UKzE0&v=3.exp&libraries=geometry,drawing,places"
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<div style={{ height: `600px` }} />}
+              mapElement={<div style={{ height: `100%` }} />}
+             data={this.state.route}/>
           </div>
         )}
       </div>
