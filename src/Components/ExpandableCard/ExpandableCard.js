@@ -24,8 +24,8 @@ export default class ExpandableCard extends Component {
 
   render() {
     return (
-      <div className="common-container">
-        <div className={this.state.class}>
+      <div className="common-container" style={{width:'100%',maxWidth:400,textAlign:'left'}} >
+        <div style={{width:'100%',padding:5}} >
           <p>{this.state.messageContent}</p>
 
           <Icon

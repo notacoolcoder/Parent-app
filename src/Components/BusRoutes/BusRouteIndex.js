@@ -49,7 +49,7 @@ export default class BusRouteIndex extends Component {
           <Spin />
         ) : (
           <div>
-             <MapWork  style={{width:300,height:300}}
+             <MapWork  style={{width:'100%',maxWidth:400,height:'auto'}}
               googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7GkW3KZMvbakRdzKeDbV-61l1-6UKzE0&v=3.exp&libraries=geometry,drawing,places"
               loadingElement={<div style={{ height: `100%` }} />}
               containerElement={<div style={{ height: `600px` }} />}

@@ -60,7 +60,7 @@ export default class extends Component {
         {this.state.spin ? (
           <Spin />
         ) : (
-          <div>
+          <div style={{width:'100%',maxWidth:400,textAlign:'left'}} >
             {this.state.data.map(q => (
               <span>
                 <div className="circular-date">{q.date}</div>

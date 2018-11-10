@@ -61,7 +61,7 @@ export default class extends Component {
         return response.json();
       })
       .then(value => {
-        message.success("Leave has been canceled");
+        message.success("Leave has been cancelled");
         that.getData();
       });
   }
