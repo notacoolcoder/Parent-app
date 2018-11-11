@@ -18,7 +18,7 @@ export class Home extends Component {
 
     if (id != "home") {
       const schoolCode = this.props.match.params.sc;
-      this.props.setData(id);
+      //this.props.setData(id);
 
       var that = this;
 
