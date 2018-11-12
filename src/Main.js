@@ -48,12 +48,12 @@ export class Main extends Component {
   componentDidMount() {
     var active = localStorage.getItem("active");
 
-    var data = JSON.parse(localStorage.getItem("data"));
+    if(active!=null){
+      var data = JSON.parse(localStorage.getItem("data"));
 
     this.setState({ studentList: data.studentList, active });
-    window.addEventListener("storage", () => {
-      console.log("Changed!!");
-    });
+    }
+    
   }
 
   handleToggle = () => this.setState({ open: !this.state.open });
