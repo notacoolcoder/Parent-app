@@ -3,14 +3,16 @@ import { Icon, Carousel, message } from "antd";
 import "./index.css";
 import { Link } from "react-router-dom";
 import { Consumer } from "../../Context";
-
+import i from './home.jpg';
 //import { askForPermissioToReceiveNotifications } from "../../Utils/config";
 import { baseUrl } from "./../../Api";
 
 export class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { token: "" };
+    this.state = { token: "",
+    background:""
+  };
   }
   componentDidMount() {
     const id = this.props.match.params.id;
@@ -44,8 +46,13 @@ export class Home extends Component {
           this.props.activateStudent(active);
           localStorage.setItem("active", active);
           localStorage.setItem("schoolID", schoolCode);
+          console.log(value);
+          
+          this.setState({background:value.studentList[0].schoolImageURL})
         });
     }
+    
+
   }
 
   render() {
@@ -64,11 +71,13 @@ export class Home extends Component {
             alignItems: "center"
           }}
         >
-          <div style={{ fontSize: "28px" }}>AT THE END OF THE DAY</div>
+        <img src={this.state.background === null ? i : this.state.background} style={{width:'100%',height:"100%"}}/>
+        
+          {/* <div style={{ fontSize: "28px" }}>AT THE END OF THE DAY</div>
           <div style={{ fontSize: "15px" }}>
             THE GOALS ARE SIMPLE: SAFETY AND SECURITY
             {this.state.token}
-          </div>
+          </div> */}
         </div>
         <Carousel style={{ width: "100%" }}>
           <div

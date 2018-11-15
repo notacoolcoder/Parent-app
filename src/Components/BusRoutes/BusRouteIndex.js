@@ -8,9 +8,11 @@ export default class BusRouteIndex extends Component {
     super(props);
     this.state = {
       route: [],
+      path:[],
       routeId: "",
       collapse: false,
       spin:true,
+      last:{},
       studentId: localStorage.getItem("active")
     };
   }
@@ -39,7 +41,22 @@ export default class BusRouteIndex extends Component {
       data.forEach(r => {
         that.state.route.push(r.val());
       });
-      that.setState({ spin: false });
+      var length = that.state.route.length
+      var r = length-1
+       
+    for(var t = 0;t<that.state.route.length-1;t++){
+      
+      that.state.path.push([{
+        lat:that.state.route[t].lat,
+        lng:that.state.route[t].lon
+      },{
+        lat:that.state.route[t+1].lat,
+        lng:that.state.route[t+1].lon
+      }])
+    }
+   var last = that.state.route[r]
+    
+      that.setState({ spin: false,last:last });
     });
   };
   render() {
@@ -49,12 +66,12 @@ export default class BusRouteIndex extends Component {
           <Spin />
         ) : (
           <div>
-             <MapWork  style={{width:'100%',maxWidth:400,height:'auto'}}
+             <MapWork  style={{width:300,height:300}}
               googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7GkW3KZMvbakRdzKeDbV-61l1-6UKzE0&v=3.exp&libraries=geometry,drawing,places"
               loadingElement={<div style={{ height: `100%` }} />}
               containerElement={<div style={{ height: `600px` }} />}
               mapElement={<div style={{ height: `100%` }} />}
-             data={this.state.route}/>
+             data={this.state.path} last={this.state.last}/>
           </div>
         )}
       </div>

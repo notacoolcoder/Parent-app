@@ -4,40 +4,54 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
+  Polyline,
+  lineSymbol
 } from "react-google-maps";
 const { MarkerClusterer } = require("react-google-maps/lib/components/addons/MarkerClusterer");
 class MapWork extends Component{
   constructor(props){
     super(props);
     this.state={
-      data:[{lat:21,lon:22},{lat:23,lon:25},{lat:26,lon:50},{lat:21,lon:22},{lat:23,lon:25},{lat:26,lon:50},{lat:21.2131,lon:22.2131},{lat:29,lon:75},{lat:16,lon:20},{lat:12,lon:11},{lat:14,lon:14},{lat:43,lon:32},{lat:17,lon:19},{lat:35,lon:2},{lat:23,lon:30}]
+      data:[{ lat: 10.05298765935, lng: 76.083756616339 },{ lat: 10.2169884797185, lng: 76.056727493181 }],
+       value:{}
     }
   }
   componentDidMount(){
-    console.log(this.props.data);
-    
-    
+   console.log(this.props.data);
+   console.log(this.props.last)
+    // this.state.path.push({lat:this.props.data[0].lat,lng:this.props.data[0].lon},{lat:this.props.data[r].lat,lng:this.props.data[r].lon})
+   
   }
   render(){
+    
+    
+    
     return(
       <GoogleMap
-      defaultZoom={20 }
-      defaultCenter={{ lat:10.5215899, lng: 76.2047647 }}
-    >
+      defaultZoom={14}
+      defaultCenter={{ lat: this.props.last.lat,  lng: this.props.last.lon }}>
      
-     <MarkerClusterer
-      style={{color:"#fff"}}
-      averageCenter
-      enableRetinaIcons
-      gridSize={60}
-    >
-      {this.props.data.map((marker,index) => (
-        <Marker
-          key={index}
-          position={{ lat: marker.lat, lng: marker.lon }}
-        />
-      ))}
-    </MarkerClusterer>
+     <Marker position={{ lat: this.props.last.lat, lng: this.props.last.lon }} />
+     
+      
+      
+      {this.props.data.map(p=>(
+
+        <Polyline
+        path={p}
+        geodesic={true}
+        options={{
+          strokeColor: "#3b5998",
+          strokeOpacity: 1,
+           strokeWeight: 5,
+          
+            
+          }}
+          
+          />
+          ))}
+        
+   
     </GoogleMap>
     )
   }
