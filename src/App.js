@@ -14,6 +14,7 @@ import Calender from "./Components/Calender";
 import Fee from "./Components/Fee";
 import Diary from "./Components/Diary";
 import Library from "./Components/Library/Library";
+import GallerySub from "./Components/GallerySub" ;
 import Marksheet from "./Components/Marksheet/Marksheet";
 import Main from "./Main";
 import { Provider } from "./Context";
@@ -51,6 +52,7 @@ export default class App extends Component {
                   <Route exact path="/timetable" component={Timetable} />
                   <Route exact path="/profile" component={Profile} />
                   <Route exact path="/:id/:sc" component={Home} />
+                  <Route exact path="/:folder" component={GallerySub}/>
                 </Switch>
               </Main>
             </Switch>
