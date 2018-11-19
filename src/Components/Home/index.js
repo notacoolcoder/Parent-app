@@ -51,6 +51,10 @@ export class Home extends Component {
           this.setState({background:value.studentList[0].schoolImageURL})
         });
     }
+    else{
+      var data = JSON.parse(localStorage.getItem('data'))
+      this.setState({background:data.studentList[0].schoolImageURL})
+    }
     
 
   }
