@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import { galleryBaseUrl } from "../../Api";
 import { Modal } from "antd";
 
@@ -18,7 +17,7 @@ export default class GalleryBlock extends Component {
   render() {
     const preview = this.state.preview;
     return (
-      <div className="gallery-card">
+      <div className="gallery-card" style={{margin : "8px"}}>
         <img
           src={galleryBaseUrl + this.props.url}
           width={80}
