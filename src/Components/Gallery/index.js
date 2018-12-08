@@ -4,7 +4,7 @@ import { Icon } from "antd" ;
 import { galleryAPI } from "./../../Api";
 import Block from "./GalleryBlock";
 import { parseString } from "xml2js";
-import { Redirect } from "react-router-dom";
+import { Redirect,Link } from "react-router-dom";
 
 class Gallery extends Component {
   constructor(props) {
@@ -80,10 +80,11 @@ class Gallery extends Component {
           justifyContent: "center"
         }}
       >
+      
         {
           this.state.galleryString.map( item => (
             <div onClick={e => this.gotoGallery(item)} style={{display : "flex" , flexDirection : "row"}}>
-              <Icon style={{fontSize : "35px" , margin : "10px" , color : "#08c"}} type="folder-open" />
+              <Icon style={{fontSize : "35px" , margin : "10px" , color : "ash"}} type="folder-open" />
               <div style={{display : "flex" , alignItems : "center"}}>{item}</div>
             </div>
           ))

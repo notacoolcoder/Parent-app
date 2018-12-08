@@ -14,12 +14,14 @@ import Calender from "./Components/Calender";
 import Fee from "./Components/Fee";
 import Diary from "./Components/Diary";
 import Library from "./Components/Library/Library";
-import GallerySub from "./Components/GallerySub" ;
+import GallerySub from "./Components/GallerySub";
 import Marksheet from "./Components/Marksheet/Marksheet";
 import Main from "./Main";
 import { Provider } from "./Context";
 import Gallery from "./Components/Gallery";
 import BusRoutesIndex from "./Components/BusRoutes/BusRouteIndex";
+import Map from "./Components/Map";
+
 export default class App extends Component {
   render() {
     return (
@@ -48,11 +50,11 @@ export default class App extends Component {
                     component={StudentReport}
                   />
                   <Route exact path="/gallery" component={Gallery} />
-                  <Route exact path="/busroutes" component={BusRoutesIndex} />
+                  <Route exact path="/busroutes" component={Map} />
                   <Route exact path="/timetable" component={Timetable} />
                   <Route exact path="/profile" component={Profile} />
                   <Route exact path="/:id/:sc" component={Home} />
-                  <Route exact path="/:folder" component={GallerySub}/>
+                  <Route exact path="/:folder" component={GallerySub} />
                 </Switch>
               </Main>
             </Switch>

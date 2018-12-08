@@ -3,6 +3,8 @@ import "./index.css" ;
 import { galleryAPI } from "./../../Api";
 import { parseString } from "xml2js";
 import GalleryBlock from "./../Gallery/GalleryBlock";
+import {Link} from 'react-router-dom'
+import {Icon} from 'antd'
 
 
 export default class GallerySub extends React.Component {
@@ -41,13 +43,21 @@ export default class GallerySub extends React.Component {
 
   render(){
     return(
-      <div style={{ padding: "5px", display: "flex", flexWrap: "wrap", margin: "auto", justifyContent: "flex-start" }}>
+      <div>
+        <Link to="/gallery" >
+      <div  style={{display : "flex" , flexDirection : "row"}}>
+              <Icon style={{fontSize : "35px" , margin : "10px" , color : "#08c"}} type="arrow-left" />
+              <div style={{display : "flex" , alignItems : "center"}}>Go back</div>
+          </div>
+      </Link>
+      <div style={{ padding: "5px", display: "flex", flexWrap: "wrap", margin: "auto", justifyContent: "center" }}>
       {this.state.gallery.map( item => (
         <GalleryBlock url={item.Key}/>
       ))}
       {/* {this.state.data.map(s => (
         <GalleryCard date={s.date} gallery={s.gallery} />
       ))} */}
+      </div>
       </div>
     )
   }
