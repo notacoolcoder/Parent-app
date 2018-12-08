@@ -58,10 +58,15 @@ export class Home extends Component {
   }
 
   setMapMode = (schoolId, parentId) => {
+    const active = localStorage.getItem("active");
+    const wholeData = JSON.parse(localStorage.getItem("data"));
+    const data = wholeData.studentList.find(item => item.id == active);
+
+    const routeId = data.busRouteCode + data.busRouteId;
     db.ref("mapMode")
       .child(schoolId)
       .child(parentId)
-      .set({ mode: false });
+      .set({ mode: false, active: routeId });
   };
 
   render() {
