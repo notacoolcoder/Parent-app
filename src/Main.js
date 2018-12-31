@@ -204,19 +204,19 @@ export class Main extends Component {
           onRequestChange={open => this.setState({ open })}
         >
           <Link to="/home/abc">
-            <div style={this.style.menuItem} onClick={this.handleClose}>
+            <div style={this.style.menuItem} onClick={this.handleToggle}>
               <Icon style={{ width: "30%" }} type="appstore" theme="outlined" />
               <div style={{ width: "70%" }}>Menu</div>
             </div>
           </Link>
           <Link to="/profile">
-            <div style={this.style.menuItem} onClick={this.handleClose}>
+            <div style={this.style.menuItem} onClick={this.handleToggle}>
               <Icon style={{ width: "30%" }} type="profile" theme="outlined" />
               <div style={{ width: "70%" }}>Profile</div>
             </div>
           </Link>
           <Link to="/messages">
-            <div style={this.style.menuItem} onClick={this.handleClose}>
+            <div style={this.style.menuItem} onClick={this.handleToggle}>
               <Icon style={{ width: "30%" }} type="message" theme="outlined" />
               <div style={{ width: "70%" }}>Messages</div>
             </div>

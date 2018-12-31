@@ -91,6 +91,14 @@ export default class ProfileCard extends Component {
                 <div>Roll No:</div>
                 {this.props.data.rollNo}
               </span>
+              <span>
+                <div>House Group:</div>
+                {this.props.data.houseGroup}
+              </span>
+              <span>
+                <div>Bus Route:</div>
+                {this.props.data.busRoute}
+              </span>
             </div>
           </Collapse>
         </div>

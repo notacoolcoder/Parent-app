@@ -29,6 +29,8 @@ export default class GallerySub extends React.Component {
       })
 
       .then(value => {
+        console.log("gallery",value);
+        
         parseString(value, { explicitArray: false }, (err, result) => {
           //console.log("Res", result.ListBucketResult.Contents);
           console.log("dat---", result);
@@ -80,7 +82,7 @@ export default class GallerySub extends React.Component {
           </div>
         </Link>
         {this.state.images.length > 0 ? (
-          <Gallery images={this.state.images} />
+          <Gallery images={this.state.images} showLightboxThumbnails={true} />
         ) : (
           <div style={{ textAlign: "center" }}>No data!</div>
         )}

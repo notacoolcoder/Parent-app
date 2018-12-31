@@ -8,7 +8,12 @@ export default class extends Component {
     this.state = {
       data: {
         circularList: [],
-        dailyReport: []
+        dailyReport: [],
+        paPortioncovereds: [],
+        paHomeworks: [],
+        paInstructions: [],
+        paClassTests: [],
+        dailyReportFiles: []
       },
       studentId: localStorage.getItem("active"),
       phone: localStorage.getItem("phone"),
@@ -48,8 +53,23 @@ export default class extends Component {
       .then(value => {
         console.log("------", value);
         localStorage.setItem("diary", value);
+        const {
+          paPortioncovereds,
+          paHomeworks,
+          paInstructions,
+          paClassTests,
+          dailyReportFiles
+        } = value;
 
-        this.setState({ data: value, spin: false });
+        this.setState({
+          data: value,
+          spin: false,
+          paPortioncovereds,
+          paHomeworks,
+          paInstructions,
+          paClassTests,
+          dailyReportFiles
+        });
       })
       .catch(err => {
         console.log("err", err);
@@ -92,7 +112,24 @@ export default class extends Component {
         ).toString();
 
         console.log("new date", today);
-        this.setState({ data, spin: false, today });
+        const {
+          paPortioncovereds,
+          paHomeworks,
+          paInstructions,
+          paClassTests,
+          dailyReportFiles
+        } = value;
+
+        this.setState({
+          data,
+          spin: false,
+          today,
+          paPortioncovereds,
+          paHomeworks,
+          paInstructions,
+          paClassTests,
+          dailyReportFiles
+        });
 
         console.log("state.date", this.state.today);
       })
@@ -149,7 +186,7 @@ export default class extends Component {
       paInstructions,
       paClassTests,
       dailyReportFiles
-    } = this.state.data.dailyReport;
+    } = this.state.data;
     const circularList = this.state.data.circularList;
     return (
       <div>

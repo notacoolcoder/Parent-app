@@ -13,7 +13,7 @@ export default class extends Component {
     super(props);
     this.state = {
       workingDays: 96,
-      absentDays: 5,
+      absentDays: "",
       leave: [],
       currentDate: new Date(),
 
@@ -41,7 +41,7 @@ export default class extends Component {
       })
       .then(value => {
         console.log(value);
-        this.setState({ leave: value });
+        this.setState({ leave: value, absentDays: value.length });
       });
   };
 
@@ -71,11 +71,11 @@ export default class extends Component {
       <div className="absent-report-main-container">
         <div className="send-leave-container">
           <h1 className="total-absent">
-            Absent Report{" "}
-            {/* <span className="absent-days">
+            Total Absent{" "}
+            <span className="absent-days">
               &nbsp;
-              {this.state.absentDays}/{this.state.workingDays}
-            </span> */}
+              {this.state.absentDays}
+            </span>
           </h1>
           <Link to="/absentreportsubmit">
             <button className="send-leave">Send Leave</button>

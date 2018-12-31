@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import GalleryCard from "./GalleryCard";
-import { Icon } from "antd" ;
+import { Icon } from "antd";
 import { galleryAPI } from "./../../Api";
 import Block from "./GalleryBlock";
 import { parseString } from "xml2js";
-import { Redirect,Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class Gallery extends Component {
   constructor(props) {
@@ -25,10 +25,10 @@ class Gallery extends Component {
         }
       ],
       schoolCode: localStorage.getItem("schoolID"),
-      gallery: [] ,
-      galleryString : [] ,
-      redirect:false,
-      value:''
+      gallery: [],
+      galleryString: [],
+      redirect: false,
+      value: ""
     };
   }
 
@@ -43,57 +43,59 @@ class Gallery extends Component {
       })
 
       .then(value => {
+        console.log("gg", value);
+
         parseString(value, { explicitArray: false }, (err, result) => {
-          //console.log("Res", result.ListBucketResult.Contents);
+          console.log("Res", result.ListBucketResult.Contents);
           const dat = result.ListBucketResult.CommonPrefixes;
           that.setState({ gallery: result.ListBucketResult.CommonPrefixes });
-          console.log("hghg",dat);
+          console.log("hghg", dat);
           var array = [];
           dat.map(item => {
-            var name= item.Prefix.split("/")
-            array.push(name[name.length-2])
-
-          })
-          that.setState({galleryString : array})
-          console.log("galleryString" , array);
+            var name = item.Prefix.split("/");
+            array.push(name[name.length - 2]);
+          });
+          that.setState({ galleryString: array });
+          console.log("galleryString", array);
         });
       });
-
   }
 
-  gotoGallery = (item) => {
-    console.log("item" , item);
-    this.setState({value:item,redirect:true})
-
-  }
+  gotoGallery = item => {
+    console.log("item", item);
+    this.setState({ value: item, redirect: true });
+  };
 
   render() {
-    var value = this.state.value ;
+    var value = this.state.value;
     return (
       <div
         style={{
-          width : "100%",
+          width: "100%",
           padding: "5px",
           display: "flex",
           margin: "10px",
-          flexDirection : "column" ,
+          flexDirection: "column",
           justifyContent: "center"
         }}
       >
-      
-        {
-          this.state.galleryString.map( item => (
-            <div onClick={e => this.gotoGallery(item)} style={{display : "flex" , flexDirection : "row"}}>
-              <Icon style={{fontSize : "35px" , margin : "10px" , color : "ash"}} type="folder-open" />
-              <div style={{display : "flex" , alignItems : "center"}}>{item}</div>
-            </div>
-          ))
-        }
+        {this.state.galleryString.map(item => (
+          <div
+            onClick={e => this.gotoGallery(item)}
+            style={{ display: "flex", flexDirection: "row" }}
+          >
+            <Icon
+              style={{ fontSize: "35px", margin: "10px", color: "ash" }}
+              type="folder-open"
+            />
+            <div style={{ display: "flex", alignItems: "center" }}>{item}</div>
+          </div>
+        ))}
 
         {/* {this.state.data.map(s => (
           <GalleryCard date={s.date} gallery={s.gallery} />
         ))} */}
-        {this.state.redirect?<Redirect to={"/"+this.state.value}/>:null}
+        {this.state.redirect ? <Redirect to={"/" + this.state.value} /> : null}
       </div>
     );
   }

@@ -3,11 +3,19 @@ import "./index.css";
 import { DatePicker, Spin, Icon } from "antd";
 import moment from "moment";
 import { baseUrl } from "./../../../Api";
+import ShareBtn from "chrome-web-share";
+
 export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      data: {
+        paPortioncovereds: [],
+        paHomeworks: [],
+        paInstructions: [],
+        paClassTests: [],
+        dailyReportFiles: []
+      },
       date: moment(new Date(), "DD-MM-YYYY"),
 
       spin: true,
@@ -225,7 +233,12 @@ export default class extends Component {
 
                     <p>
                       File:
-                      <a href={q.fileUrl}>
+                      <ShareBtn
+                        shareUrl={q.fileUrl}
+                        className="my-class-name"
+                        buttonText="Download"
+                      />
+                      <a ahref={q.fileUrl}>
                         <Icon
                           type="file"
                           theme="outlined"

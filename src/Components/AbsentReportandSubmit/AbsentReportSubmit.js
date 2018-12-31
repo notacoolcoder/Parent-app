@@ -5,11 +5,14 @@ import moment from "moment";
 import { baseUrl } from "./../../Api";
 import { Redirect } from "react-router-dom";
 
-message.config({ top: 100 });
-
 export default class extends Component {
   constructor(props) {
     super(props);
+    message.config({
+      top: 100,
+      duration: 2,
+      maxCount: 1
+    });
     this.state = {
       workingDays: 96,
       studentId: localStorage.getItem("active"),
@@ -27,7 +30,12 @@ export default class extends Component {
     var that = this;
     console.log("hugu");
     const { studentId, startValue, endValue, reason } = this.state;
-    if (startValue == null || endValue == null || reason == "") {
+    if (
+      startValue == null ||
+      endValue == null ||
+      reason == "" ||
+      reason == " "
+    ) {
       message.error("Please enter all the details!");
     } else {
       var data = {
