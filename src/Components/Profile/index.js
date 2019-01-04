@@ -12,7 +12,7 @@ export default class Profile extends React.Component {
   }
   componentDidMount() {
     var data = JSON.parse(localStorage.getItem("data"));
-    console.log(data.studentList);
+    console.log("data.studentList" , data.studentList);
     this.setState({ student: data.studentList });
   }
   render() {

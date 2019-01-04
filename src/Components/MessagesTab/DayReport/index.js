@@ -3,20 +3,12 @@ import "./index.css";
 import { DatePicker, Spin, Icon } from "antd";
 import moment from "moment";
 import { baseUrl } from "./../../../Api";
-import ShareBtn from "chrome-web-share";
-
 export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {
-        paPortioncovereds: [],
-        paHomeworks: [],
-        paInstructions: [],
-        paClassTests: [],
-        dailyReportFiles: []
-      },
-      date: moment(new Date(), "DD-MM-YYYY"),
+      data: [],
+      date: moment(new Date(), "DD-MM-YYY"),
 
       spin: true,
       requestDate: new Date().toString(),
@@ -53,6 +45,7 @@ export default class extends Component {
       });
   }
   componentDidMount() {
+    console.log("datessss",new Date());
     window.addEventListener("storage", e => {
       this.setState({ studentId: localStorage.getItem("active") });
     });
@@ -80,7 +73,8 @@ export default class extends Component {
         <div className="daily-report">
           <DatePicker
             size="small"
-            defaultValue={moment(new Date(), "DD-MM-YYYY")}
+            defaultValue={moment(new Date())}
+            format="DD-MM-YYYY"
             onChange={this.onDtaeChange.bind(this)}
             style={{ width: "120px", margin: "4px" }}
           />
@@ -233,12 +227,7 @@ export default class extends Component {
 
                     <p>
                       File:
-                      <ShareBtn
-                        shareUrl={q.fileUrl}
-                        className="my-class-name"
-                        buttonText="Download"
-                      />
-                      <a ahref={q.fileUrl}>
+                      <a href={q.fileUrl}>
                         <Icon
                           type="file"
                           theme="outlined"

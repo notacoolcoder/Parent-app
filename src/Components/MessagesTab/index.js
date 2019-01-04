@@ -52,9 +52,6 @@ export default class extends Component {
             <TabPane tab="Class Test" key="6">
               <ClassTest />
             </TabPane>
-            <TabPane tab="Files" key="7">
-              <Files />
-            </TabPane>
           </Tabs>
         </div>
       </div>

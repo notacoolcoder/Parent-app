@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 import { baseUrl } from "./../../Api";
 import { message } from "antd";
 
-message.config({ top: 100 });
+message.config({ top: 100 , maxCount : 1 });
 
 export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
       workingDays: 96,
-      absentDays: "",
+      absentDays: 5,
       leave: [],
       currentDate: new Date(),
 
@@ -41,11 +41,12 @@ export default class extends Component {
       })
       .then(value => {
         console.log(value);
-        this.setState({ leave: value, absentDays: value.length });
+        this.setState({ leave: value });
       });
   };
 
   onLeaveCancel(id) {
+    message.config({ top: 100 , maxCount : 1 });
     var that = this;
     var data = {
       studentLeaveId: id
@@ -71,11 +72,14 @@ export default class extends Component {
       <div className="absent-report-main-container">
         <div className="send-leave-container">
           <h1 className="total-absent">
-            Total Absent{" "}
-            <span className="absent-days">
+            Absent Report
+            <div style={{ display : "flex" , alignItems : "center" , justifyContent : "center"}}>
+              {this.state.leave.length}
+            </div>
+            {/* <span className="absent-days">
               &nbsp;
-              {this.state.absentDays}
-            </span>
+              {this.state.absentDays}/{this.state.workingDays}
+            </span> */}
           </h1>
           <Link to="/absentreportsubmit">
             <button className="send-leave">Send Leave</button>

@@ -5,14 +5,11 @@ import moment from "moment";
 import { baseUrl } from "./../../Api";
 import { Redirect } from "react-router-dom";
 
+message.config({ top: 100 , maxCount : 1 });
+
 export default class extends Component {
   constructor(props) {
     super(props);
-    message.config({
-      top: 100,
-      duration: 2,
-      maxCount: 1
-    });
     this.state = {
       workingDays: 96,
       studentId: localStorage.getItem("active"),
@@ -22,20 +19,37 @@ export default class extends Component {
       endOpen: false,
       studentId: localStorage.getItem("active"),
       reason: "",
-      red: false
+      red: false ,
+      leave : [],
     };
   }
 
+  componentDidMount(){
+    var data = {
+      studentId : this.state.studentId
+    }
+    fetch( baseUrl + "academic/absentReport/",{
+      method :"POST",
+      body : JSON.stringify(data),
+      headers : {
+        "Content-Type" : "application/json"
+      }
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(value => {
+      console.log(value);
+      this.setState({leave : value})
+    })
+  }
+
   submitLeave() {
+    message.config({ top: 100 , maxCount : 1 });
     var that = this;
     console.log("hugu");
     const { studentId, startValue, endValue, reason } = this.state;
-    if (
-      startValue == null ||
-      endValue == null ||
-      reason == "" ||
-      reason == " "
-    ) {
+    if (startValue == null || endValue == null || reason == "") {
       message.error("Please enter all the details!");
     } else {
       var data = {
@@ -52,6 +66,7 @@ export default class extends Component {
         }
       })
         .then(response => {
+          console.log("response",response);
           return response.json();
         })
         .then(value => {
@@ -72,6 +87,10 @@ export default class extends Component {
     }
     return startValue.valueOf() > endValue.valueOf();
   };
+
+  disabledDate = (current) => {
+    return current && current.valueOf() < Date.now();
+  }
 
   disabledEndDate = endValue => {
     const startValue = this.state.startValue;
@@ -118,7 +137,7 @@ export default class extends Component {
               <h1>From</h1>
               <DatePicker
                 className="date-picker date-picker-start"
-                disabledDate={this.disabledStartDate}
+                disabledDate={this.disabledDate}
                 size="small"
                 format="DD-MM-YYYY"
                 value={startValue}

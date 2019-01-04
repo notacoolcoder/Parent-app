@@ -6,7 +6,6 @@ import Drawer from "material-ui/Drawer";
 import FlatButton from "material-ui/FlatButton";
 import { Icon, Radio } from "antd";
 import { Consumer } from "./Context";
-import { db } from "./Utils/config";
 
 const RadioGroup = Radio.Group;
 
@@ -49,11 +48,12 @@ export class Main extends Component {
   componentDidMount() {
     var active = localStorage.getItem("active");
 
-    if (active != null) {
+    if(active!=null){
       var data = JSON.parse(localStorage.getItem("data"));
 
-      this.setState({ studentList: data.studentList, active });
+    this.setState({ studentList: data.studentList, active });
     }
+    
   }
 
   handleToggle = () => this.setState({ open: !this.state.open });
@@ -77,22 +77,6 @@ export class Main extends Component {
   onStudentChange = e => {
     this.setState({ active: e.target.value });
     console.log("sel", e.target.value);
-    this.getData();
-  };
-
-  getData = () => {
-    const id = localStorage.getItem("id");
-    const schoolId = localStorage.getItem("schoolID");
-    const wholeData = JSON.parse(localStorage.getItem("data"));
-    const data = wholeData.studentList.find(
-      item => item.id == this.state.active
-    );
-    console.log("data", data);
-    const routeId = data.busRouteCode + data.busRouteId;
-    db.ref("mapMode")
-      .child(schoolId)
-      .child(id)
-      .set({ mode: false, active: routeId });
   };
 
   render() {
@@ -204,19 +188,19 @@ export class Main extends Component {
           onRequestChange={open => this.setState({ open })}
         >
           <Link to="/home/abc">
-            <div style={this.style.menuItem} onClick={this.handleToggle}>
+            <div style={this.style.menuItem} onClick={this.handleClose}>
               <Icon style={{ width: "30%" }} type="appstore" theme="outlined" />
               <div style={{ width: "70%" }}>Menu</div>
             </div>
           </Link>
           <Link to="/profile">
-            <div style={this.style.menuItem} onClick={this.handleToggle}>
+            <div style={this.style.menuItem} onClick={this.handleClose}>
               <Icon style={{ width: "30%" }} type="profile" theme="outlined" />
               <div style={{ width: "70%" }}>Profile</div>
             </div>
           </Link>
           <Link to="/messages">
-            <div style={this.style.menuItem} onClick={this.handleToggle}>
+            <div style={this.style.menuItem} onClick={this.handleClose}>
               <Icon style={{ width: "30%" }} type="message" theme="outlined" />
               <div style={{ width: "70%" }}>Messages</div>
             </div>

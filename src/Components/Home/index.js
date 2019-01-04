@@ -3,15 +3,16 @@ import { Icon, Carousel, message } from "antd";
 import "./index.css";
 import { Link } from "react-router-dom";
 import { Consumer } from "../../Context";
-import i from "./home.jpg";
+import i from './home.jpg';
 //import { askForPermissioToReceiveNotifications } from "../../Utils/config";
 import { baseUrl } from "./../../Api";
-import { db } from "../../Utils/config";
 
 export class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { token: "", background: "" };
+    this.state = { token: "",
+    background:""
+  };
   }
   componentDidMount() {
     const id = this.props.match.params.id;
@@ -45,29 +46,18 @@ export class Home extends Component {
           this.props.activateStudent(active);
           localStorage.setItem("active", active);
           localStorage.setItem("schoolID", schoolCode);
-          localStorage.setItem("id", id);
           console.log(value);
-          this.setMapMode(schoolCode, id);
-
-          this.setState({ background: value.studentList[0].schoolImageURL });
+          
+          this.setState({background:value.studentList[0].schoolImageURL})
         });
-    } else {
-      var data = JSON.parse(localStorage.getItem("data"));
-      this.setState({ background: data.studentList[0].schoolImageURL });
     }
+    else{
+      var data = JSON.parse(localStorage.getItem('data'))
+      this.setState({background:data.studentList[0].schoolImageURL})
+    }
+    
+
   }
-
-  setMapMode = (schoolId, parentId) => {
-    const active = localStorage.getItem("active");
-    const wholeData = JSON.parse(localStorage.getItem("data"));
-    const data = wholeData.studentList.find(item => item.id == active);
-
-    const routeId = data.busRouteCode + data.busRouteId;
-    db.ref("mapMode")
-      .child(schoolId)
-      .child(parentId)
-      .set({ mode: false, active: routeId });
-  };
 
   render() {
     return (
@@ -85,11 +75,8 @@ export class Home extends Component {
             alignItems: "center"
           }}
         >
-          <img
-            src={this.state.background === null ? i : this.state.background}
-            style={{ width: "100%", height: "100%" }}
-          />
-
+        <img src={this.state.background === null ? i : this.state.background} style={{width:'100%',height:"100%"}}/>
+        
           {/* <div style={{ fontSize: "28px" }}>AT THE END OF THE DAY</div>
           <div style={{ fontSize: "15px" }}>
             THE GOALS ARE SIMPLE: SAFETY AND SECURITY
